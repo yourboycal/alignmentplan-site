@@ -103,7 +103,7 @@ def offer(rel, current, pages):
     wanted = (by_slug.get(current) or {}).get("related") or []
     others = [by_slug[x] for x in wanted if x in by_slug and x != current][:2]
     if len(others) < 2:
-        others += [p for p in pages if p["slug"] != current and p not in others][:2 - len(others)]
+        others += [p for p in pages if p["slug"] != current and p not in others and p.get("kind") != "legal"][:2 - len(others)]
     cards = "".join(
         '<a href="{rel}{slug}/"><b>{name}</b><span>{sub}</span></a>'.format(
             rel=rel, slug=p["slug"], name=esc(p["og_title"]), sub=esc(p["card_sub"])) for p in others)
@@ -219,6 +219,8 @@ def build_home(pages):
     first, body = raw.split("\n", 1)
     meta = json.loads(first)
     check("home", meta["title"], meta["description"])
+    all_pages = pages
+    pages = [p for p in pages if p.get("kind") != "legal"]  # the privacy page is linked from the footer, not shown as a tool
     cards = "\n    ".join(
         '<a href="{slug}/"><span class="tag">{tag}</span><b>{name}</b><span class="sub">{sub}</span><span class="go">Open</span></a>'.format(
             slug=p["slug"], tag=esc(p["tag"]), name=esc(p["og_title"]), sub=esc(p["card_sub"])) for p in pages)
@@ -235,14 +237,14 @@ def build_home(pages):
         ensure_ascii=False, indent=1)
     doc = (head(meta["title"], meta["description"], BASE, BASE + "og/home.png", "", ld,
                 extra='<link rel="stylesheet" href="assets/home.css">\n')
-           + "<body>\n" + nav("", None, pages) + "\n<main>\n" + body.strip() + "\n</main>\n" + footer("", pages)
+           + "<body>\n" + nav("", None, pages) + "\n<main>\n" + body.strip() + "\n</main>\n" + footer("", all_pages)
            + '\n<script src="assets/home.js" defer></script>\n</body>\n</html>\n')
     open(os.path.join(SITE, "index.html"), "w", encoding="utf-8").write(doc)
     return meta
 
 
 def build_404(pages):
-    links = "".join('<li><a href="/{slug}/">{name}</a></li>'.format(slug=p["slug"], name=esc(p["og_title"])) for p in pages)
+    links = "".join('<li><a href="/{slug}/">{name}</a></li>'.format(slug=p["slug"], name=esc(p["og_title"])) for p in pages if p.get("kind") != "legal")
     ld = json.dumps({"@context": "https://schema.org", "@type": "WebPage", "name": "Page not found"})
     body = ('<section class="page-head gutter" style="padding-top:44px;"><div class="wrap">\n'
             '  <h1>That page is not here.</h1>\n  <p class="lede">It may have moved. These are the pages people usually want.</p>\n'

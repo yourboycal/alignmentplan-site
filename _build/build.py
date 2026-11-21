@@ -37,6 +37,16 @@ WAITLIST = json.load(open(os.path.join(HERE, "waitlist.json"), encoding="utf-8")
 problems = []
 
 
+def aside(p):
+    """Pages that are not tools or guides: the privacy page and the two sign-up steps. Kept off the tool cards."""
+    return p.get("kind") in ("legal", "step")
+
+
+def step(p):
+    """The two pages Kit sends people to after signing up and after confirming. Not for search engines, not in the footer."""
+    return p.get("kind") == "step"
+
+
 def waitlist_html(n, ghost=""):
     if WAITLIST.get("action"):
         return ('<form class="waitlist" action="{action}" method="post">\n'
@@ -91,7 +101,7 @@ def nav(rel, current, pages):
 
 def footer(rel, pages):
     links = '<a href="{rel}">Home</a>'.format(rel=rel) + "".join(
-        '<a href="{rel}{slug}/">{name}</a>'.format(rel=rel, slug=p["slug"], name=esc(p["nav"])) for p in pages)
+        '<a href="{rel}{slug}/">{name}</a>'.format(rel=rel, slug=p["slug"], name=esc(p["nav"])) for p in pages if not step(p))
     return ('<footer class="gutter"><div class="wrap">\n'
             '  <p>{brand}. Your scores and answers stay in your own browser.</p>\n'
             '  <nav aria-label="Footer">{links}</nav>\n'
@@ -103,7 +113,7 @@ def offer(rel, current, pages):
     wanted = (by_slug.get(current) or {}).get("related") or []
     others = [by_slug[x] for x in wanted if x in by_slug and x != current][:2]
     if len(others) < 2:
-        others += [p for p in pages if p["slug"] != current and p not in others and p.get("kind") != "legal"][:2 - len(others)]
+        others += [p for p in pages if p["slug"] != current and p not in others and not aside(p)][:2 - len(others)]
     cards = "".join(
         '<a href="{rel}{slug}/"><b>{name}</b><span>{sub}</span></a>'.format(
             rel=rel, slug=p["slug"], name=esc(p["og_title"]), sub=esc(p["card_sub"])) for p in others)
@@ -211,9 +221,10 @@ def build_page(page, pages):
     if isinstance(names, str):
         names = [names]
     script = "".join('<script src="{rel}assets/{s}" defer></script>\n'.format(rel=rel, s=n) for n in names)
-    doc = (head(page["title"], page["description"], url, BASE + "og/" + page["slug"] + ".png", rel, graph(page, url))
+    doc = (head(page["title"], page["description"], url, BASE + "og/" + page["slug"] + ".png", rel, graph(page, url),
+                robots='<meta name="robots" content="noindex">\n' if step(page) else "")
            + "<body>\n" + nav(rel, page["slug"], pages) + "\n" + crumbs + "\n<main>\n" + body.strip() + "\n</main>\n"
-           + ("" if page.get("kind") == "legal" else offer(rel, page["slug"], pages) + "\n") + footer(rel, pages) + "\n" + script + "</body>\n</html>\n")
+           + ("" if aside(page) else offer(rel, page["slug"], pages) + "\n") + footer(rel, pages) + "\n" + script + "</body>\n</html>\n")
     out_dir = os.path.join(SITE, page["slug"])
     os.makedirs(out_dir, exist_ok=True)
     open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8").write(doc)
@@ -228,7 +239,7 @@ def build_home(pages):
     meta = json.loads(first)
     check("home", meta["title"], meta["description"])
     all_pages = pages
-    pages = [p for p in pages if p.get("kind") != "legal"]  # the privacy page is linked from the footer, not shown as a tool
+    pages = [p for p in pages if not aside(p)]  # the privacy page is linked from the footer, not shown as a tool
     cards = "\n    ".join(
         '<a href="{slug}/"><span class="tag">{tag}</span><b>{name}</b><span class="sub">{sub}</span><span class="go">Open</span></a>'.format(
             slug=p["slug"], tag=esc(p["tag"]), name=esc(p["og_title"]), sub=esc(p["card_sub"])) for p in pages)
@@ -252,7 +263,7 @@ def build_home(pages):
 
 
 def build_404(pages):
-    links = "".join('<li><a href="/{slug}/">{name}</a></li>'.format(slug=p["slug"], name=esc(p["og_title"])) for p in pages if p.get("kind") != "legal")
+    links = "".join('<li><a href="/{slug}/">{name}</a></li>'.format(slug=p["slug"], name=esc(p["og_title"])) for p in pages if not aside(p))
     ld = json.dumps({"@context": "https://schema.org", "@type": "WebPage", "name": "Page not found"})
     body = ('<section class="page-head gutter" style="padding-top:44px;"><div class="wrap">\n'
             '  <h1>That page is not here.</h1>\n  <p class="lede">It may have moved. These are the pages people usually want.</p>\n'
@@ -270,7 +281,9 @@ def main():
     home = build_home(pages)
     build_404(pages)
     for p in pages:
-        urls.append(build_page(p, pages))
+        u = build_page(p, pages)
+        if not step(p):
+            urls.append(u)
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     sm += ["  <url><loc>{u}</loc><lastmod>{d}</lastmod></url>".format(u=u, d=TODAY) for u in urls]
     sm.append("</urlset>")
@@ -298,6 +311,8 @@ def main():
     home_html = open(os.path.join(SITE, "index.html"), encoding="utf-8").read()
     slugs = {p["slug"] for p in pages}
     for p in pages:
+        if step(p):
+            continue  # reached from Kit, not from our own links
         for x in p.get("related", []):
             if x not in slugs:
                 problems.append("/" + p["slug"] + "/ lists a related page that does not exist: " + x)

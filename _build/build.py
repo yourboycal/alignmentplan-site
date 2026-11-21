@@ -24,9 +24,33 @@ ORG_ID = BASE + "#org"
 SITE_ID = BASE + "#site"
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap">')
+         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Caveat:wght@500;700&family=Instrument+Sans:wght@400;500;600&display=swap">')
+
+# The logo mark: three dots, one for each step, pulled into line by a pen stroke.
+MARK = ('<svg class="mark" viewBox="0 0 40 16" aria-hidden="true"><path d="M2 9.5C7 5 11 12 20 8s13-3 18 .5" fill="none" '
+        'stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="8.4" r="4.6" fill="var(--s1)"/>'
+        '<circle cx="20" cy="8" r="4.6" fill="var(--s2)"/><circle cx="32" cy="7.6" r="4.6" fill="var(--s3)"/></svg>')
+# Waiting list. waitlist.json holds the sign-up form address from the email tool. While "action" is empty
+# the button opens an email to the contact address instead, so the page never shows a form that goes nowhere.
+WAITLIST = json.load(open(os.path.join(HERE, "waitlist.json"), encoding="utf-8"))
 
 problems = []
+
+
+def waitlist_html(n, ghost=""):
+    if WAITLIST.get("action"):
+        return ('<form class="waitlist" action="{action}" method="post">\n'
+                '      <label class="sr-only" for="wl-{n}">Your email address</label>\n'
+                '      <div class="wl-row"><input id="wl-{n}" type="email" name="{field}" placeholder="Your email address" autocomplete="email" required>'
+                '<button class="btn btn-primary" type="submit">Join the waiting list</button></div>\n'
+                '      <p class="wl-note">One email when it opens in December. Nothing else, and you can leave any time.</p>\n'
+                '    </form>').format(action=esc(WAITLIST["action"]), field=esc(WAITLIST.get("field", "email")), n=n)
+    mail = ("mailto:" + CONTACT + "?subject=Add%20me%20to%20the%20waiting%20list"
+            "&body=Please%20add%20me%20to%20The%20Alignment%20Plan%20waiting%20list.")
+    return ('<div class="waitlist">\n'
+            '      <div class="wl-row"><a class="btn btn-primary" href="{mail}">Join the waiting list</a>{ghost}</div>\n'
+            '      <p class="wl-note">Opens this December. The button starts an email to {c}: press send and you are on the list.</p>\n'
+            '    </div>').format(mail=mail, c=CONTACT, ghost=ghost)
 
 
 def esc(s):
@@ -59,10 +83,9 @@ def nav(rel, current, pages):
             cur=' aria-current="page"' if p["slug"] == current else "")
         for p in pages if p.get("in_nav", True))
     return ('<div class="nav gutter"><div class="wrap">\n'
-            '  <a class="logo" href="{rel}"><span class="dots"><i style="background:var(--s1)"></i>'
-            '<i style="background:var(--s2)"></i><i style="background:var(--s3)"></i></span>{brand}</a>\n'
+            '  <a class="logo" href="{rel}">' + MARK + '{brand}</a>\n'
             '  <nav class="nav-links" aria-label="Main">{links}<a class="nav-tools" href="{rel}#tools">Free tools</a>'
-            '<a class="btn btn-primary" href="{rel}#ask">Start your reflection</a></nav>\n'
+            '<a class="btn btn-primary" href="{rel}#ask">Join the waiting list</a></nav>\n'
             '</div></div>').format(rel=rel, brand=BRAND, links=links)
 
 
@@ -92,7 +115,7 @@ def offer(rel, current, pages):
             '    <h2>A reflection is the start. The plan is what keeps you aligned.</h2>\n'
             '    <p>The Alignment Plan takes what you have just worked out and turns it into one focus for the year '
             'and a step for every month. A tap every Friday and ten minutes on the first of the month keep you on it.</p>\n'
-            '    <div class="actions"><a class="btn btn-primary" href="{rel}#ask">Start your reflection</a>'
+            '    <div class="actions"><a class="btn btn-primary" href="{rel}#ask">Join the waiting list</a>'
             '<a class="btn btn-ghost" href="{rel}#how">How it works</a></div>\n'
             '  </div>\n'
             '  <div class="next">{cards}</div>\n'
@@ -200,6 +223,8 @@ def build_home(pages):
         '<a href="{slug}/"><span class="tag">{tag}</span><b>{name}</b><span class="sub">{sub}</span><span class="go">Open</span></a>'.format(
             slug=p["slug"], tag=esc(p["tag"]), name=esc(p["og_title"]), sub=esc(p["card_sub"])) for p in pages)
     body = body.replace("{{TOOLS}}", cards).replace("{{EMAIL}}", CONTACT)
+    body = body.replace("{{WAITLIST_TOP}}", waitlist_html(1, '<a class="btn btn-ghost" href="#how">See how it works</a>'))
+    body = body.replace("{{WAITLIST_END}}", waitlist_html(2))
     ld = json.dumps({"@context": "https://schema.org", "@graph": [
         {"@type": "Organization", "@id": ORG_ID, "name": BRAND, "url": BASE},
         {"@type": "WebSite", "@id": SITE_ID, "url": BASE, "name": BRAND, "publisher": {"@id": ORG_ID}, "inLanguage": "en-GB"},

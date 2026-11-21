@@ -1,14 +1,17 @@
-/* The Alignment Plan: shared stylesheet for tool and guide pages.
-   Same tokens as the product page. Light design only. */
+/* The Alignment Plan: shared stylesheet for every page. The colours, type and logo live here.
+   Light design only. */
 :root {
-  --paper: #ffffff; --paper-2: #f6f6f2; --ink: #15151b; --ink-2: #5f5f6a; --line: #e4e4df;
-  --s1: #3457d5; --s1-tint: #e8edff; --s1-ink: #1d3aa6;
-  --s2: #f08a1d; --s2-tint: #fff0dc; --s2-ink: #9a5203;
-  --s3: #2a9d4f; --s3-tint: #e1f6e8; --s3-ink: #1a6b35;
-  --card: #ffffff;
-  --shadow: 0 20px 50px rgba(21,21,27,0.12), 0 2px 6px rgba(21,21,27,0.06);
+  /* Warm paper, soft ink. One colour for each step: Reflect (pen blue), Plan (marigold), Stay aligned (leaf green). */
+  --paper: #fbf6ee; --paper-2: #f3ecdf; --ink: #26211c; --ink-2: #6b6259; --line: #e6dccb;
+  --s1: #4458d6; --s1-tint: #e7eaff; --s1-ink: #2b3aa8;
+  --s2: #ee8f2e; --s2-tint: #ffecd2; --s2-ink: #94500a;
+  --s3: #2a8452; --s3-tint: #ddf1e3; --s3-ink: #1c6540;
+  --card: #fffdf9;
+  --shadow: 0 20px 50px rgba(38,33,28,0.12), 0 2px 6px rgba(38,33,28,0.06);
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  /* Handwriting: used wherever a person is speaking (their answers, a note in the margin). Never for buttons or body text. */
+  --hand: "Caveat", "Bradley Hand", "Segoe Print", cursive;
   color-scheme: light;
 }
 * { box-sizing: border-box; }
@@ -23,7 +26,7 @@ a { color: inherit; }
 .wrap > * { min-width: 0; }
 .muted { color: var(--ink-2); }
 .kicker { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 18px; border-radius: 10px; font: inherit; font-weight: 600; text-decoration: none; font-size: 15px; border: 2px solid transparent; cursor: pointer; background: none; color: var(--ink); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 18px; border-radius: 999px; font: inherit; font-weight: 600; text-decoration: none; font-size: 15px; border: 2px solid transparent; cursor: pointer; background: none; color: var(--ink); }
 .btn-primary { background: var(--ink); color: var(--paper); }
 .btn-ghost { border-color: var(--line); background: var(--card); }
 .btn-green { background: var(--s3); color: #fff; }
@@ -177,7 +180,7 @@ footer a:hover { text-decoration: underline; }
 
 /* Home hub */
 .hub { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.hub a { display: grid; gap: 8px; align-content: start; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; text-decoration: none; box-shadow: 0 4px 14px rgba(21,21,27,0.06); }
+.hub a { display: grid; gap: 8px; align-content: start; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; text-decoration: none; box-shadow: 0 4px 14px rgba(38,33,28,0.06); }
 .hub a:hover { border-color: var(--ink); }
 .hub .tag { justify-self: start; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
 .hub a:nth-child(4n+1) .tag { background: var(--s1-tint); color: var(--s1-ink); }
@@ -453,3 +456,8 @@ ol.prompts li.answered::before { color: var(--s3-ink); }
 @media (max-width: 880px) {
   .nav-links a.nav-tools { display: inline; color: var(--ink); font-weight: 600; }
 }
+
+/* Logo mark and small shared pieces of the identity */
+.logo .mark { width: 40px; height: 16px; flex: none; color: var(--ink); }
+.hand { font-family: var(--hand); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

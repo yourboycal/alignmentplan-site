@@ -20,6 +20,9 @@ python3 site/_build/og.py
 - `../assets/canvas-kit.js`: shared helpers for the two tools that save a picture (vision board, bingo card).
 - `home.html`: the home page. It is the product page: hero with the product screen, three steps, the features, then a "Free tools" section that lists every page in `content/`, so a new page appears there without any editing. Its styles are `assets/home.css` and its wheel script is `assets/home.js`. The example questions come from our own 45 questions and the wheel uses the standard eight areas. Do not paste in wording from the Heights booklet (commitment score, letter to yourself, "who were you with").
 - `contact.txt`: the public contact email shown on the home page. One line.
+- `waitlist.json`: the waiting list. While `"action"` is empty, the "Join the waiting list" button starts an email to the contact address. Paste the sign-up form address from the email tool into `"action"` (and the name of its email field into `"field"`), run `build.py`, and the button becomes an email box that posts to the tool.
+
+The look (colours, fonts, logo, the handwriting rule) is written up in `../../brand/identity.md`. The colours are the `:root` block at the top of `assets/site.css`. The logo mark is `MARK` in `build.py`.
 - The product page with the mock-up screens (`reflections-pitch/index.html`) is not part of this site. It stays private for now.
 
 ## The address

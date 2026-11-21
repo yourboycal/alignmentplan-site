@@ -6,10 +6,10 @@
   var now = [8, 5, 6, 7, 6, 7, 4, 7];
   var NS = "http://www.w3.org/2000/svg";
   var cs = getComputedStyle(document.documentElement);
-  var c1 = cs.getPropertyValue("--s1").trim() || "#3457d5";
-  var c3 = cs.getPropertyValue("--s3").trim() || "#2a9d4f";
-  var inkCol = cs.getPropertyValue("--ink").trim() || "#15151b";
-  var lineCol = cs.getPropertyValue("--ink-2").trim() || "#5f5f6a";
+  var c1 = cs.getPropertyValue("--s1").trim() || "#4458d6";
+  var c3 = cs.getPropertyValue("--s3").trim() || "#2a8452";
+  var inkCol = cs.getPropertyValue("--ink").trim() || "#26211c";
+  var lineCol = cs.getPropertyValue("--ink-2").trim() || "#6b6259";
 
   function el(name, attrs, text) {
     var e = document.createElementNS(NS, name);

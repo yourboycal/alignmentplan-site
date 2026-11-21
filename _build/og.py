@@ -10,8 +10,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
 OUT = os.path.join(SITE, "og")
 os.makedirs(OUT, exist_ok=True)
-INK, INK2, PAPER, LINE = (21, 21, 27), (95, 95, 106), (255, 255, 255), (228, 228, 223)
-S1, S2, S3 = (52, 87, 213), (240, 138, 29), (42, 157, 79)
+INK, INK2, PAPER, LINE = (38, 33, 28), (107, 98, 89), (251, 246, 238), (230, 220, 203)
+S1, S2, S3 = (68, 88, 214), (238, 143, 46), (42, 132, 82)
 
 
 def font(size, bold=True):
@@ -44,8 +44,8 @@ def wheel(draw, cx, cy, R):
         draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=LINE, width=2)
     for i in range(8):
         draw.line([(cx, cy), pt(i, 10)], fill=LINE, width=2)
-    draw.polygon([pt(i, v) for i, v in enumerate(then)], fill=(52, 87, 213, 45), outline=S1)
-    draw.polygon([pt(i, v) for i, v in enumerate(now)], fill=(42, 157, 79, 80), outline=S3)
+    draw.polygon([pt(i, v) for i, v in enumerate(then)], fill=(68, 88, 214, 45), outline=S1)
+    draw.polygon([pt(i, v) for i, v in enumerate(now)], fill=(42, 132, 82, 80), outline=S3)
     for i, v in enumerate(now):
         x, y = pt(i, v); draw.ellipse([x - 7, y - 7, x + 7, y + 7], fill=S3)
 
@@ -53,6 +53,8 @@ def wheel(draw, cx, cy, R):
 def card(slug, title, sub):
     img = Image.new("RGB", (1200, 630), PAPER)
     d = ImageDraw.Draw(img, "RGBA")
+    # The mark: a pen stroke that pulls the three dots into line.
+    d.line([(60, 85), (74, 78), (92, 84), (113, 81), (134, 77), (152, 78), (166, 83)], fill=INK, width=3, joint="curve")
     for n, c in enumerate((S1, S2, S3)):
         d.ellipse([72 + n * 30, 70, 94 + n * 30, 92], fill=c)
     d.text((176, 62), "The Alignment Plan", font=font(34), fill=INK)

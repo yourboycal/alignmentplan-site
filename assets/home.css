@@ -245,3 +245,5 @@ ol.pills { list-style: none; margin: 0; padding: 0; }
   .wl-row .btn { flex: 1 1 100%; }
   .scribble { font-size: 21px; }
 }
+
+.wl-note a { color: inherit; }

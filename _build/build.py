@@ -43,13 +43,13 @@ def waitlist_html(n, ghost=""):
                 '      <label class="sr-only" for="wl-{n}">Your email address</label>\n'
                 '      <div class="wl-row"><input id="wl-{n}" type="email" name="{field}" placeholder="Your email address" autocomplete="email" required>'
                 '<button class="btn btn-primary" type="submit">Join the waiting list</button></div>\n'
-                '      <p class="wl-note">One email when it opens in December. Nothing else, and you can leave any time.</p>\n'
+                '      <p class="wl-note">One email when it opens in December. Nothing else, and you can leave any time. <a href="privacy/">Privacy</a>.</p>\n'
                 '    </form>').format(action=esc(WAITLIST["action"]), field=esc(WAITLIST.get("field", "email")), n=n)
     mail = ("mailto:" + CONTACT + "?subject=Add%20me%20to%20the%20waiting%20list"
             "&body=Please%20add%20me%20to%20The%20Alignment%20Plan%20waiting%20list.")
     return ('<div class="waitlist">\n'
             '      <div class="wl-row"><a class="btn btn-primary" href="{mail}">Join the waiting list</a>{ghost}</div>\n'
-            '      <p class="wl-note">Opens this December. The button starts an email to {c}: press send and you are on the list.</p>\n'
+            '      <p class="wl-note">Opens this December. The button starts an email to {c}: press send and you are on the list. <a href="privacy/">Privacy</a>.</p>\n'
             '    </div>').format(mail=mail, c=CONTACT, ghost=ghost)
 
 
@@ -190,7 +190,15 @@ def build_page(page, pages):
     rel = "../"
     url = BASE + page["slug"] + "/"
     check(page["slug"], page["title"], page["description"])
-    body = page["body"].replace("{{REL}}", rel)
+    body = page["body"].replace("{{REL}}", rel).replace("{{EMAIL}}", CONTACT)
+    # The privacy page names whoever holds the waiting list, so it changes by itself when waitlist.json is filled in.
+    inbox = ('<li><b>Our inbox.</b> Email you send us is forwarded by Cloudflare to a mailbox hosted by Microsoft.{extra}</li>')
+    if WAITLIST.get("action"):
+        holder = ('<li><b>Kit</b> (kit.com) stores the waiting list and sends our emails. Kit is based in the United States.</li>\n    '
+                  + inbox.format(extra=""))
+    else:
+        holder = inbox.format(extra=" For now the waiting list is simply the emails people send us.")
+    body = body.replace("{{LIST_HOLDER}}", holder)
     if page.get("faq"):
         body = body.replace("{{FAQ}}", faq_html(page["faq"]))
     if page.get("questions"):
@@ -205,7 +213,7 @@ def build_page(page, pages):
     script = "".join('<script src="{rel}assets/{s}" defer></script>\n'.format(rel=rel, s=n) for n in names)
     doc = (head(page["title"], page["description"], url, BASE + "og/" + page["slug"] + ".png", rel, graph(page, url))
            + "<body>\n" + nav(rel, page["slug"], pages) + "\n" + crumbs + "\n<main>\n" + body.strip() + "\n</main>\n"
-           + offer(rel, page["slug"], pages) + "\n" + footer(rel, pages) + "\n" + script + "</body>\n</html>\n")
+           + ("" if page.get("kind") == "legal" else offer(rel, page["slug"], pages) + "\n") + footer(rel, pages) + "\n" + script + "</body>\n</html>\n")
     out_dir = os.path.join(SITE, page["slug"])
     os.makedirs(out_dir, exist_ok=True)
     open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8").write(doc)

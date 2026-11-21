@@ -1,17 +1,17 @@
 /* The Alignment Plan: shared stylesheet for every page. The colours, type and logo live here.
    Light design only. */
 :root {
-  /* Warm paper, soft ink. One colour for each step: Reflect (pen blue), Plan (marigold), Stay aligned (leaf green). */
-  --paper: #fbf6ee; --paper-2: #f3ecdf; --ink: #26211c; --ink-2: #6b6259; --line: #e6dccb;
-  --s1: #4458d6; --s1-tint: #e7eaff; --s1-ink: #2b3aa8;
-  --s2: #ee8f2e; --s2-tint: #ffecd2; --s2-ink: #94500a;
-  --s3: #2a8452; --s3-tint: #ddf1e3; --s3-ink: #1c6540;
-  --card: #fffdf9;
-  --shadow: 0 20px 50px rgba(38,33,28,0.12), 0 2px 6px rgba(38,33,28,0.06);
+  /* Stone paper, soft ink. One muted colour for each step: Reflect (mulberry), Plan (honey), Stay aligned (sage). */
+  --paper: #f7f3ee; --paper-2: #efe9e1; --ink: #211e1b; --ink-2: #6a6259; --line: #e3dbd0;
+  --s1: #7a3b4e; --s1-tint: #f3e4e8; --s1-ink: #5e2a3a;
+  --s2: #c98a2b; --s2-tint: #f7ebd3; --s2-ink: #7a5210;
+  --s3: #3f6b55; --s3-tint: #e0ece4; --s3-ink: #2b4d3c;
+  --card: #fffdfb;
+  --shadow: 0 20px 50px rgba(33,30,27,0.10), 0 2px 6px rgba(33,30,27,0.05);
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
-  /* Handwriting: used wherever a person is speaking (their answers, a note in the margin). Never for buttons or body text. */
-  --hand: "Caveat", "Bradley Hand", "Segoe Print", cursive;
+  /* Serif italic: the one accent word in a headline, and the words a person wrote in the example screens. */
+  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
   color-scheme: light;
 }
 * { box-sizing: border-box; }
@@ -180,7 +180,7 @@ footer a:hover { text-decoration: underline; }
 
 /* Home hub */
 .hub { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.hub a { display: grid; gap: 8px; align-content: start; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; text-decoration: none; box-shadow: 0 4px 14px rgba(38,33,28,0.06); }
+.hub a { display: grid; gap: 8px; align-content: start; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; text-decoration: none; box-shadow: 0 4px 14px rgba(33,30,27,0.06); }
 .hub a:hover { border-color: var(--ink); }
 .hub .tag { justify-self: start; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
 .hub a:nth-child(4n+1) .tag { background: var(--s1-tint); color: var(--s1-ink); }
@@ -459,5 +459,4 @@ ol.prompts li.answered::before { color: var(--s3-ink); }
 
 /* Logo mark and small shared pieces of the identity */
 .logo .mark { width: 40px; height: 16px; flex: none; color: var(--ink); }
-.hand { font-family: var(--hand); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

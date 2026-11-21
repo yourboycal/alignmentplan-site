@@ -22,7 +22,7 @@ python3 site/_build/og.py
 - `contact.txt`: the public contact email shown on the home page. One line.
 - `waitlist.json`: the waiting list. While `"action"` is empty, the "Join the waiting list" button starts an email to the contact address. Paste the sign-up form address from the email tool into `"action"` (and the name of its email field into `"field"`), run `build.py`, and the button becomes an email box that posts to the tool.
 
-The look (colours, fonts, logo, the handwriting rule) is written up in `../../brand/identity.md`. The colours are the `:root` block at the top of `assets/site.css`. The logo mark is `MARK` in `build.py`.
+The look (colours, fonts, logo, the serif italic rule) is written up in `../../brand/identity.md`. The colours are the `:root` block at the top of `assets/site.css`. The logo mark is `MARK` in `build.py`.
 - The product page with the mock-up screens (`reflections-pitch/index.html`) is not part of this site. It stays private for now.
 
 ## The address

@@ -53,7 +53,7 @@ def waitlist_html(n, ghost=""):
                 '      <label class="sr-only" for="wl-{n}">Your email address</label>\n'
                 '      <div class="wl-row"><input id="wl-{n}" type="email" name="{field}" placeholder="Your email address" autocomplete="email" required>'
                 '<button class="btn btn-primary" type="submit">Join the waiting list</button></div>\n'
-                '      <p class="wl-note">One email when it opens in December. Nothing else, and you can leave any time. <a href="privacy/">Privacy</a>.</p>\n'
+                '      <p class="wl-note">We will email you once to confirm, then when it opens in December. You can leave any time. <a href="privacy/">Privacy</a>.</p>\n'
                 '    </form>').format(action=esc(WAITLIST["action"]), field=esc(WAITLIST.get("field", "email")), n=n)
     mail = ("mailto:" + CONTACT + "?subject=Add%20me%20to%20the%20waiting%20list"
             "&body=Please%20add%20me%20to%20The%20Alignment%20Plan%20waiting%20list.")

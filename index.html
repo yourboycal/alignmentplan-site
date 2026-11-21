@@ -170,10 +170,11 @@
     <p class="badge"><i></i>An online planner for your whole year</p>
     <h1>Plan your year. Then <em>actually stick to it.</em></h1>
     <p class="lede">The Alignment Plan is a guided yearly planner you do online. It walks you through a reflection in December, turns your goals into a step for every month, then checks in with you every Friday.</p>
-    <div class="waitlist">
-      <div class="wl-row"><a class="btn btn-primary" href="mailto:hello@alignmentplan.com?subject=Add%20me%20to%20the%20waiting%20list&body=Please%20add%20me%20to%20The%20Alignment%20Plan%20waiting%20list.">Join the waiting list</a><a class="btn btn-ghost" href="#how">See how it works</a></div>
-      <p class="wl-note">Opens this December. The button starts an email to hello@alignmentplan.com: press send and you are on the list. <a href="privacy/">Privacy</a>.</p>
-    </div>
+    <form class="waitlist" action="https://app.kit.com/forms/10224116/subscriptions" method="post">
+      <label class="sr-only" for="wl-1">Your email address</label>
+      <div class="wl-row"><input id="wl-1" type="email" name="email_address" placeholder="Your email address" autocomplete="email" required><button class="btn btn-primary" type="submit">Join the waiting list</button></div>
+      <p class="wl-note">We will email you once to confirm, then when it opens in December. You can leave any time. <a href="privacy/">Privacy</a>.</p>
+    </form>
     <ol class="pills" aria-label="The three steps">
       <li class="pill"><b>1</b> Reflect on your year</li>
       <li class="pill"><b>2</b> Plan the next one</li>
@@ -428,10 +429,11 @@
     <p>The first guided reflections open this December, for a small first group. Two hours then, and a step for every month after.</p>
   </div>
   <div class="copy">
-    <div class="waitlist">
-      <div class="wl-row"><a class="btn btn-primary" href="mailto:hello@alignmentplan.com?subject=Add%20me%20to%20the%20waiting%20list&body=Please%20add%20me%20to%20The%20Alignment%20Plan%20waiting%20list.">Join the waiting list</a></div>
-      <p class="wl-note">Opens this December. The button starts an email to hello@alignmentplan.com: press send and you are on the list. <a href="privacy/">Privacy</a>.</p>
-    </div>
+    <form class="waitlist" action="https://app.kit.com/forms/10224116/subscriptions" method="post">
+      <label class="sr-only" for="wl-2">Your email address</label>
+      <div class="wl-row"><input id="wl-2" type="email" name="email_address" placeholder="Your email address" autocomplete="email" required><button class="btn btn-primary" type="submit">Join the waiting list</button></div>
+      <p class="wl-note">We will email you once to confirm, then when it opens in December. You can leave any time. <a href="privacy/">Privacy</a>.</p>
+    </form>
   </div>
 </div></section>
 </main>

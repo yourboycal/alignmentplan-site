@@ -1,5 +1,5 @@
 {
- "provider": "",
- "action": "",
+ "provider": "kit",
+ "action": "https://app.kit.com/forms/10224116/subscriptions",
  "field": "email_address"
 }

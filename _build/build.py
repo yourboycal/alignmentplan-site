@@ -5,7 +5,7 @@ Run from anywhere:  python3 site/_build/build.py
 Each fragment in content/*.html starts with one JSON line of metadata, then the
 HTML body. The script wraps it with the head tags, nav, offer block and footer,
 adds canonical and Open Graph tags and JSON-LD, and writes <slug>/index.html.
-It also builds the home page (a hub of the free tools) from home.html, a 404
+It also builds the home page (the product page, with the free tools below it) from home.html, a 404
 page, sitemap.xml, robots.txt and the CNAME file for the host.
 
 Change BASE when the domain changes. Nothing else holds the address.
@@ -61,7 +61,8 @@ def nav(rel, current, pages):
     return ('<div class="nav gutter"><div class="wrap">\n'
             '  <a class="logo" href="{rel}"><span class="dots"><i style="background:var(--s1)"></i>'
             '<i style="background:var(--s2)"></i><i style="background:var(--s3)"></i></span>{brand}</a>\n'
-            '  <nav class="nav-links" aria-label="Main">{links}<a class="btn btn-primary" href="{rel}#ask">Start your reflection</a></nav>\n'
+            '  <nav class="nav-links" aria-label="Main">{links}<a class="nav-tools" href="{rel}#tools">Free tools</a>'
+            '<a class="btn btn-primary" href="{rel}#ask">Start your reflection</a></nav>\n'
             '</div></div>').format(rel=rel, brand=BRAND, links=links)
 
 
@@ -189,7 +190,8 @@ def build_page(page, pages):
 
 
 def build_home(pages):
-    """The home page is a hub: every free tool one click away, then the three steps and the contact block."""
+    """The home page is the product page: hero with the product screen, the three steps, the features,
+    then every free tool one click away and the contact block. Its styles and script are home.css and home.js."""
     raw = open(os.path.join(HERE, "home.html"), encoding="utf-8").read()
     first, body = raw.split("\n", 1)
     meta = json.loads(first)
@@ -206,8 +208,10 @@ def build_home(pages):
         {"@type": "ItemList", "name": "Free tools", "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "name": p["og_title"], "url": BASE + p["slug"] + "/"} for i, p in enumerate(pages)]}]},
         ensure_ascii=False, indent=1)
-    doc = (head(meta["title"], meta["description"], BASE, BASE + "og/home.png", "", ld)
-           + "<body>\n" + nav("", None, pages) + "\n<main>\n" + body.strip() + "\n</main>\n" + footer("", pages) + "\n</body>\n</html>\n")
+    doc = (head(meta["title"], meta["description"], BASE, BASE + "og/home.png", "", ld,
+                extra='<link rel="stylesheet" href="assets/home.css">\n')
+           + "<body>\n" + nav("", None, pages) + "\n<main>\n" + body.strip() + "\n</main>\n" + footer("", pages)
+           + '\n<script src="assets/home.js" defer></script>\n</body>\n</html>\n')
     open(os.path.join(SITE, "index.html"), "w", encoding="utf-8").write(doc)
     return meta
 

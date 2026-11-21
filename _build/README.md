@@ -18,7 +18,7 @@ python3 site/_build/og.py
 - `../assets/site.css`: the one shared stylesheet.
 - `../assets/wheel.js`, `reflect.js`, `goals.js`, `board.js`, `planner.js`, `bingo.js`, `prompts.js`, `audit.js`: one script per tool. All save to the visitor's own browser. Nothing is sent to a server.
 - `../assets/canvas-kit.js`: shared helpers for the two tools that save a picture (vision board, bingo card).
-- `home.html`: the home page. It is a hub that lists every page in `content/`, so a new page appears on it without any editing.
+- `home.html`: the home page. It is the product page: hero with the product screen, three steps, the features, then a "Free tools" section that lists every page in `content/`, so a new page appears there without any editing. Its styles are `assets/home.css` and its wheel script is `assets/home.js`. The example questions come from our own 45 questions and the wheel uses the standard eight areas. Do not paste in wording from the Heights booklet (commitment score, letter to yourself, "who were you with").
 - `contact.txt`: the public contact email shown on the home page. One line.
 - The product page with the mock-up screens (`reflections-pitch/index.html`) is not part of this site. It stays private for now.
 

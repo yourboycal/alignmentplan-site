@@ -447,3 +447,9 @@ ol.prompts li.answered::before { color: var(--s3-ink); }
 .hub a:nth-child(3n) .tag { background: var(--s3-tint); color: var(--s3-ink); border-color: transparent; }
 @media (max-width: 1099px) { .hub { grid-template-columns: repeat(2, minmax(0, 1fr)); } .hub a:last-child:nth-child(odd) { grid-column: 1 / -1; } }
 @media (max-width: 560px) { .hub { grid-template-columns: 1fr; } }
+
+/* "Free tools" link in the nav: phones and tablets only, where the tool links are hidden. */
+.nav-links a.nav-tools { display: none; }
+@media (max-width: 880px) {
+  .nav-links a.nav-tools { display: inline; color: var(--ink); font-weight: 600; }
+}

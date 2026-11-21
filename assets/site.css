@@ -1,23 +1,23 @@
 /* The Alignment Plan: shared stylesheet for every page. The colours, type and logo live here.
    Light design only. */
 :root {
-  /* Stone paper, soft ink. One muted colour for each step: Reflect (mulberry), Plan (honey), Stay aligned (sage). */
-  --paper: #f7f3ee; --paper-2: #efe9e1; --ink: #211e1b; --ink-2: #6a6259; --line: #e3dbd0;
-  --s1: #7a3b4e; --s1-tint: #f3e4e8; --s1-ink: #5e2a3a;
-  --s2: #c98a2b; --s2-tint: #f7ebd3; --s2-ink: #7a5210;
-  --s3: #3f6b55; --s3-tint: #e0ece4; --s3-ink: #2b4d3c;
-  --card: #fffdfb;
-  --shadow: 0 20px 50px rgba(33,30,27,0.10), 0 2px 6px rgba(33,30,27,0.05);
-  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  /* Colours taken from the painted scene on the home page: sky, sun and meadow on soft cream. */
+  --paper: #f6f3ec; --paper-2: #ece8de; --ink: #1c222b; --ink-2: #5c6470; --line: #dfdcd2;
+  --s1: #4477bb; --s1-tint: #e3edf8; --s1-ink: #2c5590;
+  --s2: #d9a03a; --s2-tint: #f8eed6; --s2-ink: #7a5512;
+  --s3: #46823a; --s3-tint: #e2f0dc; --s3-ink: #2f5e26;
+  --card: #fffefb;
+  --shadow: 0 24px 60px rgba(28,34,43,0.14), 0 2px 6px rgba(28,34,43,0.05);
+  /* Headlines are the body sans at a light weight, with one phrase in serif italic. */
+  --display: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
   --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
-  /* Serif italic: the one accent word in a headline, and the words a person wrote in the example screens. */
   --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
   color-scheme: light;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-h1, h2, h3 { margin: 0; font-family: var(--display); text-wrap: balance; line-height: 1.08; letter-spacing: -0.025em; }
+h1, h2, h3 { margin: 0; font-family: var(--display); text-wrap: balance; line-height: 1.08; letter-spacing: -0.03em; font-weight: 500; }
 p { margin: 0; }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--s2); outline-offset: 3px; }
@@ -35,7 +35,7 @@ a { color: inherit; }
 /* Nav */
 .nav { padding-block: 16px; border-bottom: 1px solid var(--line); }
 .nav .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-.logo { font-family: var(--display); font-weight: 800; font-size: 19px; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; white-space: nowrap; }
+.logo { font-family: var(--display); font-weight: 600; font-size: 19px; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; white-space: nowrap; }
 .dots { display: inline-flex; gap: 4px; }
 .dots i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
 .nav-links { display: flex; align-items: center; gap: 22px; font-size: 15px; font-weight: 500; }
@@ -49,7 +49,7 @@ a { color: inherit; }
 .crumbs a:hover { text-decoration: underline; }
 .page-head { padding-block: 18px 28px; }
 .page-head .wrap { display: grid; gap: 14px; }
-.page-head h1 { font-size: clamp(34px, 5vw, 56px); font-weight: 800; max-width: 20ch; }
+.page-head h1 { font-size: clamp(34px, 5vw, 56px); font-weight: 500; max-width: 20ch; }
 .page-head .lede { font-size: clamp(18px, 2vw, 21px); line-height: 1.5; max-width: 60ch; color: var(--ink-2); }
 .facts { display: flex; flex-wrap: wrap; gap: 8px; }
 .facts span { font-size: 14px; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: var(--paper-2); border: 1px solid var(--line); }
@@ -98,7 +98,7 @@ details.edit summary { cursor: pointer; font-weight: 600; font-size: 15px; }
 .progress .track i { display: block; height: 100%; width: 0; background: var(--s3); border-radius: 4px; transition: width 0.2s; }
 .part { padding-block: 40px 8px; }
 .part .wrap { display: grid; gap: 20px; max-width: 760px; }
-.part h2 { font-size: clamp(26px, 3.4vw, 38px); font-weight: 800; }
+.part h2 { font-size: clamp(26px, 3.4vw, 38px); font-weight: 500; }
 .part .intro { color: var(--ink-2); }
 .part .kicker.k1 { color: var(--s1-ink); } .part .kicker.k2 { color: var(--s2-ink); } .part .kicker.k3 { color: var(--s3-ink); }
 ol.qs { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: q var(--start, 0); }
@@ -112,7 +112,7 @@ ol.qs textarea:focus { outline: 3px solid var(--s1-tint); border-color: var(--s1
 /* Long-form */
 .prose { padding-block: 48px; border-top: 1px solid var(--line); }
 .prose .wrap { max-width: 760px; display: grid; gap: 18px; }
-.prose h2 { font-size: clamp(26px, 3.2vw, 36px); font-weight: 800; margin-top: 18px; }
+.prose h2 { font-size: clamp(26px, 3.2vw, 36px); font-weight: 500; margin-top: 18px; }
 .prose h3 { font-size: 20px; font-weight: 700; margin-top: 8px; }
 .prose ul, .prose ol { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
 .prose a { color: var(--s1-ink); }
@@ -129,7 +129,7 @@ ol.qs textarea:focus { outline: 3px solid var(--s1-tint); border-color: var(--s1
 /* Offer + footer */
 .offer { padding-block: 56px; background: var(--paper-2); border-top: 1px solid var(--line); }
 .offer .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center; }
-.offer h2 { font-size: clamp(26px, 3.4vw, 40px); font-weight: 800; }
+.offer h2 { font-size: clamp(26px, 3.4vw, 40px); font-weight: 500; }
 .offer .copy { display: grid; gap: 14px; }
 .offer p { color: var(--ink-2); }
 .next { display: grid; gap: 10px; }
@@ -180,14 +180,14 @@ footer a:hover { text-decoration: underline; }
 
 /* Home hub */
 .hub { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.hub a { display: grid; gap: 8px; align-content: start; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; text-decoration: none; box-shadow: 0 4px 14px rgba(33,30,27,0.06); }
+.hub a { display: grid; gap: 8px; align-content: start; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; text-decoration: none; box-shadow: 0 4px 14px rgba(28,34,43,0.06); }
 .hub a:hover { border-color: var(--ink); }
 .hub .tag { justify-self: start; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
 .hub a:nth-child(4n+1) .tag { background: var(--s1-tint); color: var(--s1-ink); }
 .hub a:nth-child(4n+2) .tag { background: var(--s2-tint); color: var(--s2-ink); }
 .hub a:nth-child(4n+3) .tag { background: var(--s3-tint); color: var(--s3-ink); }
 .hub a:nth-child(4n) .tag { background: var(--paper-2); color: var(--ink-2); border: 1px solid var(--line); }
-.hub b { font-family: var(--display); font-size: 22px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+.hub b { font-family: var(--display); font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; }
 .hub span.sub { color: var(--ink-2); font-size: 15px; }
 .hub .go { font-weight: 600; font-size: 15px; margin-top: 4px; }
 
@@ -328,7 +328,7 @@ table.mini td.mine { background: var(--s3); color: #fff; font-weight: 700; }
   .planner-opts, .planner-add, .chips { display: none !important; }
   .tool { padding: 0; }
   .planner-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10mm; font-size: 10pt; margin-bottom: 2mm; }
-  .planner-head b { font-family: var(--display); font-size: 15pt; font-weight: 800; }
+  .planner-head b { font-family: var(--display); font-size: 15pt; font-weight: 600; }
   .planner-credit { font-size: 7pt; color: #555; margin-top: 1.5mm; }
   .planner-wrap { overflow: visible; border: 0; border-radius: 0; margin-top: 0; }
   table.wall { min-width: 0; font-size: 6.5pt; }
@@ -346,7 +346,7 @@ table.mini td.mine { background: var(--s3); color: #fff; font-weight: 700; }
 }
 
 /* Goals bingo card */
-.bingo-title { font-family: var(--display); font-weight: 800; font-size: clamp(22px, 2.6vw, 30px); letter-spacing: -0.02em; line-height: 1.1; text-align: center; overflow-wrap: anywhere; }
+.bingo-title { font-family: var(--display); font-weight: 600; font-size: clamp(22px, 2.6vw, 30px); letter-spacing: -0.02em; line-height: 1.1; text-align: center; overflow-wrap: anywhere; }
 .bingo-card { container-type: inline-size; display: grid; grid-template-columns: repeat(var(--n, 5), minmax(0, 1fr)); gap: 6px; width: 100%; max-width: 520px; margin-inline: auto; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 .bingo-card button { aspect-ratio: 1; min-width: 0; display: grid; place-items: center; padding: 3px; border: 2px solid var(--line); border-radius: 10px; background: var(--card); color: var(--ink); font: inherit; font-weight: 600; font-size: clamp(11px, 3cqw, 15px); line-height: 1.18; text-align: center; cursor: pointer; overflow: hidden; }
 .bingo-card button span { display: block; overflow-wrap: anywhere; }
@@ -403,7 +403,7 @@ ol.prompts li.answered::before { color: var(--s3-ink); }
 /* Life audit */
 .audit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .audit-card { background: var(--paper-2); border-radius: 16px; padding: 16px; display: grid; gap: 8px; align-content: start; }
-.audit-card h3 { font-size: 22px; font-weight: 800; }
+.audit-card h3 { font-size: 22px; font-weight: 600; }
 .audit-card .slider { margin-block: 4px; }
 .audit-card .lbl { margin-top: 4px; }
 .audit-card textarea, .audit-card input[type="text"] { font: inherit; font-size: 16px; line-height: 1.45; width: 100%; min-width: 0; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--ink); }
@@ -460,3 +460,6 @@ ol.prompts li.answered::before { color: var(--s3-ink); }
 /* Logo mark and small shared pieces of the identity */
 .logo .mark { width: 40px; height: 16px; flex: none; color: var(--ink); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* The serif italic accent inside any headline */
+h1 em, h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.1em; letter-spacing: -0.01em; }

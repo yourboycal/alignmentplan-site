@@ -128,29 +128,59 @@
 }
 </script>
 </head>
-<body>
+<body class="home">
 <div class="nav gutter"><div class="wrap">
   <a class="logo" href=""><svg class="mark" viewBox="0 0 40 16" aria-hidden="true"><path d="M2 9.5C7 5 11 12 20 8s13-3 18 .5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="8.4" r="4.6" fill="var(--s1)"/><circle cx="20" cy="8" r="4.6" fill="var(--s2)"/><circle cx="32" cy="7.6" r="4.6" fill="var(--s3)"/></svg>The Alignment Plan</a>
   <nav class="nav-links" aria-label="Main"><a href="wheel-of-life/">Wheel of life</a><a href="vision-board/">Vision board</a><a href="reflection-questions/">Reflection</a><a href="yearly-goals-template/">Goals</a><a class="nav-tools" href="#tools">Free tools</a><a class="btn btn-primary" href="#ask">Join the waiting list</a></nav>
 </div></div>
 <main>
-<section class="hero gutter"><div class="wrap">
-  <div class="copy">
-    <p class="eyebrow">An online planner for your whole year</p>
-    <h1>Plan your year. Then <em class="accent">actually</em> stick to it.</h1>
-    <p class="lede"><b>The Alignment Plan is a guided yearly planner you do online.</b> In December it walks you through a reflection on your year and turns your goals into a step for every month. Then it checks in with you every Friday, by email or WhatsApp, so the plan is still alive in June.</p>
-    <ol class="pills" aria-label="The three steps">
-      <li class="pill c1"><b>1</b> Reflect on your year</li>
-      <li class="pill c2"><b>2</b> Plan the next one</li>
-      <li class="pill c3"><b>3</b> Stay aligned all year</li>
-    </ol>
+<section class="landing gutter">
+  <svg class="scene" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sc-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a6db5"/><stop offset=".3" stop-color="#4f82c4"/><stop offset=".5" stop-color="#7aa5d8"/><stop offset=".63" stop-color="#b4cde8"/><stop offset=".69" stop-color="#eae2d0"/><stop offset=".72" stop-color="#f1e8d4"/></linearGradient>
+      <linearGradient id="sc-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9c6e8"/><stop offset=".22" stop-color="#6396d4"/><stop offset="1" stop-color="#3c74bf"/></linearGradient>
+      <linearGradient id="sc-grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a7c94f"/><stop offset=".3" stop-color="#6aa63c"/><stop offset="1" stop-color="#2e6f2b"/></linearGradient>
+      <radialGradient id="sc-bush" cx=".4" cy=".3" r=".8"><stop offset="0" stop-color="#b9d455"/><stop offset=".5" stop-color="#6ea63a"/><stop offset="1" stop-color="#33722c"/></radialGradient>
+      <filter id="sc-brush" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.006 0.04" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="24"/></filter>
+      <filter id="sc-dab" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="34"/></filter>
+      <filter id="sc-soft" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="20"/></filter>
+      <filter id="sc-blades" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.4 0.018" numOctaves="2" seed="11"/><feColorMatrix values="0 0 0 0 .88  0 0 0 0 .95  0 0 0 0 .5  2.4 0 0 0 -1.05"/><feComposite in2="SourceAlpha" operator="in"/></filter>
+      <filter id="sc-sparkle" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.05 0.7" numOctaves="1" seed="5"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  7 0 0 0 -4.3"/><feComposite in2="SourceAlpha" operator="in"/></filter>
+      <filter id="sc-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="2"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .9 0"/></filter>
+    </defs>
+    <rect width="1440" height="900" fill="url(#sc-sky)"/>
+    <g filter="url(#sc-soft)" fill="#fff" opacity=".5">
+      <ellipse cx="260" cy="420" rx="360" ry="20"/><ellipse cx="1080" cy="380" rx="420" ry="18"/><ellipse cx="720" cy="500" rx="560" ry="24"/><ellipse cx="1300" cy="520" rx="300" ry="16"/><ellipse cx="120" cy="540" rx="280" ry="14"/>
+    </g>
+    <g filter="url(#sc-brush)">
+      <rect x="-60" y="640" width="1560" height="150" fill="url(#sc-sea)"/>
+      <rect x="-60" y="634" width="1560" height="9" fill="#f6eeda"/>
+    </g>
+    <rect x="0" y="650" width="1440" height="120" filter="url(#sc-sparkle)" opacity=".55"/>
+    <g filter="url(#sc-brush)">
+      <path d="M-60 772C180 738 420 748 660 770s520 34 840-22v200H-60Z" fill="url(#sc-grass)"/>
+    </g>
+    <path d="M-60 772C180 738 420 748 660 770s520 34 840-22v200H-60Z" filter="url(#sc-blades)" opacity=".5"/>
+    <g filter="url(#sc-dab)">
+      <ellipse cx="150" cy="770" rx="250" ry="92" fill="url(#sc-bush)"/><ellipse cx="330" cy="800" rx="150" ry="62" fill="url(#sc-bush)"/><ellipse cx="40" cy="745" rx="130" ry="70" fill="url(#sc-bush)"/>
+    </g>
+    <rect width="1440" height="900" filter="url(#sc-grain)" style="mix-blend-mode:soft-light" opacity=".55"/>
+  </svg>
+  <div class="wrap landing-copy">
+    <p class="badge"><i></i>An online planner for your whole year</p>
+    <h1>Plan your year. Then <em>actually stick to it.</em></h1>
+    <p class="lede">The Alignment Plan is a guided yearly planner you do online. It walks you through a reflection in December, turns your goals into a step for every month, then checks in with you every Friday.</p>
     <div class="waitlist">
       <div class="wl-row"><a class="btn btn-primary" href="mailto:hello@alignmentplan.com?subject=Add%20me%20to%20the%20waiting%20list&body=Please%20add%20me%20to%20The%20Alignment%20Plan%20waiting%20list.">Join the waiting list</a><a class="btn btn-ghost" href="#how">See how it works</a></div>
       <p class="wl-note">Opens this December. The button starts an email to hello@alignmentplan.com: press send and you are on the list. <a href="privacy/">Privacy</a>.</p>
     </div>
-    <p class="fine muted">Want something today? <a href="#tools">Try the free tools</a>.</p>
+    <ol class="pills" aria-label="The three steps">
+      <li class="pill"><b>1</b> Reflect on your year</li>
+      <li class="pill"><b>2</b> Plan the next one</li>
+      <li class="pill"><b>3</b> Stay aligned all year</li>
+    </ol>
   </div>
-  <div class="stage-wrap">
+  <div class="wrap stage-wrap">
     <div class="screen" role="img" aria-label="The Alignment Plan dashboard: focus for the year, focus for the month, the Fridays you moved on it, the life wheel and each year goal with this month's step">
       <div class="bar"><i></i><i></i><i></i><span>The Alignment Plan · 2027</span></div>
       <div class="body">
@@ -181,7 +211,7 @@
     </div>
     <div class="float f1" aria-hidden="true"><b>Friday. Did you move on it this week?</b><div class="ans"><span>Yes</span><span class="on">A bit</span><span>No</span></div></div>
   </div>
-</div></section>
+</section>
 
 <div class="trust gutter"><div class="wrap">
   <div class="fact"><span class="cap">What it is</span><b>A guided yearly planner, done online</b><span>A reflection, a plan and a check-in that keeps going</span></div>

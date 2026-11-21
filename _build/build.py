@@ -245,7 +245,7 @@ def build_home(pages):
         ensure_ascii=False, indent=1)
     doc = (head(meta["title"], meta["description"], BASE, BASE + "og/home.png", "", ld,
                 extra='<link rel="stylesheet" href="assets/home.css">\n')
-           + "<body>\n" + nav("", None, pages) + "\n<main>\n" + body.strip() + "\n</main>\n" + footer("", all_pages)
+           + "<body class=\"home\">\n" + nav("", None, pages) + "\n<main>\n" + body.strip() + "\n</main>\n" + footer("", all_pages)
            + '\n<script src="assets/home.js" defer></script>\n</body>\n</html>\n')
     open(os.path.join(SITE, "index.html"), "w", encoding="utf-8").write(doc)
     return meta

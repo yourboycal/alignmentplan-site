@@ -37,6 +37,20 @@ Settings on the first line worth knowing:
 - `"order"` sets where the page appears on the home page.
 - `"related": ["slug-a", "slug-b"]` picks the two pages shown in the block at the bottom.
 - `"script"` can be one file name or a list.
+- `"kind": "guide"` marks a written guide with sources (the two how-to guides). It adds article details for search engines. Give it `"published": "2026-11-21"` (the day it first went up) and leave that date alone when you edit the guide later.
+
+## Putting changes online
+
+The site lives in its own git repository inside `site/` and is hosted on GitHub Pages (repository `yourboycal/alignmentplan-site`, branch `main`). After a rebuild:
+
+```
+cd site
+git add -A
+git commit -m "Say what changed"
+git push
+```
+
+The live site updates about a minute after the push. GitHub leaves out any folder that starts with an underscore, so `_build/` is stored in the repository but never served. Do not add a `.nojekyll` file: that would switch this off.
 
 `meta.py` changes the first line of a page from Python, which avoids hand-editing a long line of JSON.
 

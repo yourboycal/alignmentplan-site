@@ -137,6 +137,12 @@ def graph(page, url):
         g.append({"@type": "WebApplication", "name": page["app_name"], "url": url, "applicationCategory": "LifestyleApplication",
                   "operatingSystem": "Any", "browserRequirements": "Requires JavaScript",
                   "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "publisher": {"@id": ORG_ID}})
+    if page.get("kind") == "guide":
+        # A written guide with sources. "published" is the day it first went up; keep it when you edit the guide.
+        g.append({"@type": "Article", "headline": page.get("headline", page["og_title"]), "description": page["description"],
+                  "mainEntityOfPage": {"@id": url + "#page"}, "image": BASE + "og/" + page["slug"] + ".png",
+                  "datePublished": page.get("published", TODAY), "dateModified": TODAY, "inLanguage": "en-GB",
+                  "author": {"@id": ORG_ID}, "publisher": {"@id": ORG_ID}})
     if page.get("faq"):
         g.append({"@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in page["faq"]]})

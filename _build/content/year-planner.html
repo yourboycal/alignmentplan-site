@@ -1,0 +1,93 @@
+{"slug": "year-planner", "nav": "Year planner 2027", "in_nav": false, "order": 5, "kind": "tool", "app_name": "Year planner 2027", "script": "planner.js", "crumb": "Year planner 2027", "tag": "Printable", "title": "Year planner 2027: free printable PDF, A4 or A3", "description": "A free printable year planner for 2027 with UK bank holidays. Add your own dates, choose a wall planner or month grids, then print or save as a PDF.", "og_title": "Year planner 2027", "og_sub": "Free and printable, with UK bank holidays.", "card_sub": "The whole of 2027 on one page with UK bank holidays. Add your dates, then print or save as a PDF.", "related": ["yearly-goals-template", "bingo-card"], "faq": [["Is this 2027 year planner free to print?", "Yes. It is free, needs no sign-up and has no watermark across the page. Press Print or save as PDF and it prints in landscape on one sheet of A4. It can be scaled up to A3."], ["How do I save the year planner as a PDF?", "Press Print or save as PDF, then choose Save as PDF as the printer in the print window. On a phone, choose Print and then share or save the preview as a PDF."], ["Does the planner show UK bank holidays?", "Yes. It shows the bank holidays for England and Wales, and you can switch to Scotland or Northern Ireland or hide them. The dates come from the official list on gov.uk."], ["Can I add my own dates to the planner?", "Yes. Choose a date, give it a short name and press Add to planner. Your dates are marked in green and saved in your own browser, so they are still there when you come back on the same device."], ["Can I print the year planner on A3?", "Yes. Choose A3 as the paper size in the print window and set the scale to 140, so the planner fills the larger sheet. If your printer only takes A4, save it as a PDF and take the file to a print shop."], ["Does the week start on Monday?", "Yes. In the month grids the week runs Monday to Sunday, which is the usual layout in the UK. The wall planner shows the day of the week beside every date."], ["Is there a 2028 year planner?", "Yes. Change the year to 2028 at the top of the planner. The bank holidays and the days of the week update to match."]]}
+<style>@page { size: landscape; margin: 8mm; }</style>
+<section class="page-head gutter no-print"><div class="wrap">
+  <h1>Year planner 2027: free and printable</h1>
+  <p class="lede">The whole of 2027 on one page, with UK bank holidays marked. Add your own dates, then print it or save it as a PDF. It fits A4 and scales up to A3.</p>
+  <div class="facts"><span>Free</span><span>No sign-up</span><span>UK bank holidays</span><span>A4 or A3, PDF</span></div>
+</div></section>
+
+<section class="tool gutter"><div class="wrap">
+  <div class="panel">
+    <div class="planner-opts">
+      <div class="field"><label class="lbl" for="p-year">Year</label><select id="p-year"><option value="2027">2027</option><option value="2028">2028</option></select></div>
+      <div class="field"><label class="lbl" for="p-region">Bank holidays</label><select id="p-region"><option value="ew">England and Wales</option><option value="sc">Scotland</option><option value="ni">Northern Ireland</option><option value="none">Do not show</option></select></div>
+      <div class="field"><span class="lbl" id="layout-lbl">Layout</span><div class="seg" role="group" aria-labelledby="layout-lbl"><button type="button" data-layout="wall" aria-pressed="true">Wall planner</button><button type="button" data-layout="grid" aria-pressed="false">Month grids</button></div></div>
+      <div class="field"><label class="lbl" for="p-focus">A line at the top (optional)</label><input id="p-focus" type="text" maxlength="60" placeholder="2027: make the new venture real" autocomplete="off"></div>
+    </div>
+    <form class="planner-add" id="p-add">
+      <div class="field"><label class="lbl" for="p-date">Add a date</label><input id="p-date" type="date" min="2027-01-01" max="2027-12-31"></div>
+      <div class="field"><label class="lbl" for="p-label">What is it?</label><input id="p-label" type="text" maxlength="28" placeholder="Mum's 60th" autocomplete="off"></div>
+      <button class="btn btn-ghost" type="submit">Add to planner</button>
+    </form>
+    <ul class="chips" id="p-chips" aria-label="Your dates"></ul>
+    <div class="actions" style="margin-top:16px;">
+      <button class="btn btn-green" id="print" type="button">Print or save as PDF</button>
+    </div>
+    <p class="toast" id="toast" role="status"></p>
+    <p class="note no-print"><span id="save-status">Your dates stay in this browser</span>. Nothing you type is sent to us. <button class="linkish" id="clear" type="button">Clear my dates</button></p>
+
+    <div class="planner-head print-only"><b id="p-head-year">2027 year planner</b><span id="p-head-focus"></span></div>
+    <div class="planner-wrap" id="planner" tabindex="0" role="region" aria-label="Year planner"></div>
+    <ul class="key" id="p-key"></ul>
+    <p class="print-only planner-credit" id="p-credit"></p>
+  </div>
+</div></section>
+
+<section class="prose gutter"><div class="wrap">
+  <h2>How to print your 2027 year planner</h2>
+  <ol>
+    <li><b>Choose a layout.</b> "Wall planner" gives each month a column and each day a line to write on. "Month grids" shows twelve small calendars, which is better for seeing the shape of the year.</li>
+    <li><b>Add the dates you already know.</b> Birthdays, holidays, deadlines. They appear on the planner in green.</li>
+    <li><b>Press "Print or save as PDF".</b> The page is set to landscape for you.</li>
+    <li><b>For A3,</b> pick A3 as the paper size in the print window and set the scale to 140. The planner then fills the larger sheet.</li>
+    <li><b>For a PDF,</b> choose "Save as PDF" as the printer. You can then send the file to a print shop or keep it on your phone.</li>
+  </ol>
+  <p>If the colours do not print, switch on "Background graphics" in the print window. It is under "More settings" in most browsers.</p>
+
+  <h2>UK bank holidays in 2027</h2>
+  <p>England and Wales have eight bank holidays in 2027. Christmas Day falls on a Saturday and Boxing Day on a Sunday, so both days off move to the following Monday and Tuesday.</p>
+  <div class="table-wrap">
+    <table class="cmp">
+      <thead><tr><th scope="col">Date</th><th scope="col">Bank holiday</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Friday 1 January</th><td>New Year's Day</td></tr>
+        <tr><th scope="row">Friday 26 March</th><td>Good Friday</td></tr>
+        <tr><th scope="row">Monday 29 March</th><td>Easter Monday</td></tr>
+        <tr><th scope="row">Monday 3 May</th><td>Early May bank holiday</td></tr>
+        <tr><th scope="row">Monday 31 May</th><td>Spring bank holiday</td></tr>
+        <tr><th scope="row">Monday 30 August</th><td>Summer bank holiday</td></tr>
+        <tr><th scope="row">Monday 27 December</th><td>Christmas Day (substitute day)</td></tr>
+        <tr><th scope="row">Tuesday 28 December</th><td>Boxing Day (substitute day)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><b>Scotland</b> has nine. It adds Monday 4 January and St Andrew's Day on Tuesday 30 November, has its summer bank holiday on Monday 2 August, and does not have Easter Monday.</p>
+  <p><b>Northern Ireland</b> has ten. It has the same eight as England and Wales, plus St Patrick's Day on Wednesday 17 March and the Battle of the Boyne holiday on Monday 12 July.</p>
+  <p class="credit">Dates are from the official list at <a href="https://www.gov.uk/bank-holidays" rel="noopener">gov.uk/bank-holidays</a>, checked on 20 November 2026.</p>
+
+  <h2>2027 at a glance</h2>
+  <ul>
+    <li>2027 starts on a Friday and ends on a Friday.</li>
+    <li>It is not a leap year, so it has 365 days. The next leap year is 2028.</li>
+    <li>Easter Sunday is 28 March.</li>
+    <li>The clocks go forward on Sunday 28 March and back on Sunday 31 October.</li>
+    <li>The longest gap between bank holidays in England and Wales runs from the end of August to Christmas.</li>
+  </ul>
+
+  <h2>What to put on a year planner first</h2>
+  <p>A blank year fills itself with other people's plans. Put your own in before that happens, in this order.</p>
+  <ol>
+    <li><b>The dates that cannot move.</b> Birthdays, weddings, exams, school terms.</li>
+    <li><b>Your time off.</b> Book it early. Holidays that are not on the planner tend not to happen.</li>
+    <li><b>The finish dates for your goals.</b> If you want something done by September, write it on September. The <a href="{{REL}}yearly-goals-template/">yearly goals template</a> helps you work back from there to a step for each month.</li>
+    <li><b>A check-in on the first of every month.</b> Ten minutes to look at the planner and ask whether the year is going where you meant it to. The <a href="{{REL}}wheel-of-life/">wheel of life</a> is a quick way to do it.</li>
+    <li><b>Everything else.</b> Work, appointments and the rest will find their own way on.</li>
+  </ol>
+
+  <h2>Wall planner or month grids?</h2>
+  <p>Use the <b>wall planner</b> if you want to write on it. Each day has its own line, so there is room for a few words. It is the layout to pin up at home or by your desk.</p>
+  <p>Use the <b>month grids</b> if you want to see the year at once. Weeks line up the way they do on a calendar, which makes it easier to count the weeks to a deadline or spot a clear run for a project.</p>
+
+  <h2>Questions about the year planner</h2>
+  {{FAQ}}
+</div></section>

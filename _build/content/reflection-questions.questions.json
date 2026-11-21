@@ -1,0 +1,74 @@
+[
+  {
+    "id": "long",
+    "kicker": "Part 1",
+    "class": "k1",
+    "title": "The long view",
+    "intro": "Start far back. A year is easier to judge once you can see the ten around it.",
+    "questions": [
+      ["Ten years ago, what did you think your life would look like by now?", "The gap between that picture and today shows what changed: you, or the plan."],
+      ["Which decision from the last ten years shaped your life the most?", "Big turns are easier to see from a distance."],
+      ["What did you want badly five years ago that no longer matters to you?", "Wanting changes. That is a reason to look twice at what you want today."],
+      ["What have you kept doing for years, even when nobody asked you to?", "What you keep returning to is usually what you value."],
+      ["Which friendship or relationship has lasted the longest, and why has it?", "It tells you what you need from people."],
+      ["What is the hardest thing you have come through, and what did it leave you with?", "You are more durable than one bad month suggests."],
+      ["When in your life did you feel most like yourself?", "This is your reference point for a life that fits."],
+      ["What did you believe about work or money ten years ago that you have since dropped?", "Old rules often keep running long after you stop believing them."],
+      ["Which place you have lived or worked suited you best?", "Surroundings matter more than most of us admit."],
+      ["What skill have you built slowly that you now take for granted?", "Slow progress is invisible until you look back."],
+      ["Whose advice turned out to be right?", "It shows whose voice is worth listening for."],
+      ["What risk are you glad you took?", "Keep it as evidence for the next one."],
+      ["What risk are you glad you did not take?", "Caution deserves credit too."],
+      ["What have you been saying \"one day\" about for more than five years?", "A \"one day\" either needs a date or needs letting go."],
+      ["If you met yourself from ten years ago, what would surprise them most about you now?", "A quick way to see how far you have come."]
+    ]
+  },
+  {
+    "id": "year",
+    "kicker": "Part 2",
+    "class": "k2",
+    "title": "The last twelve months",
+    "intro": "Now the year itself. Go month by month in your head, or open your calendar and your photos to jog your memory.",
+    "questions": [
+      ["If this year were a chapter in a book, what would its title be?", "Naming the year makes you decide what it was about."],
+      ["Which three moments from this year would you keep?", "What you would keep shows what to make more of."],
+      ["What did you finish this year?", "Finished things are forgotten faster than unfinished ones."],
+      ["What did you start and quietly drop?", "No blame. Dropped things show where the plan or the timing was wrong."],
+      ["Where did most of your time actually go?", "Time is the most honest record of your priorities."],
+      ["Where did most of your money go, beyond the bills?", "The same question, in a different ledger."],
+      ["What gave you energy this year?", "This is what to protect next year."],
+      ["What drained you this year?", "Do less of it, or change how you do it."],
+      ["Who did you see more of this year, and who did you see less of?", "People drift in and out without anyone deciding."],
+      ["What was the best decision you made this year?", "Look at how you made it, so you can do it again."],
+      ["What would you do differently if you had the year again?", "Regret is useful once, as an instruction."],
+      ["What did you learn about yourself that you did not know in January?", "A year that taught you nothing has not been looked at closely enough."],
+      ["What were you worried about a year ago that turned out fine?", "It is a check on how well your worries predict anything."],
+      ["What did you say yes to that you should have turned down?", "This shows where your limits are soft."],
+      ["What are you proud of that nobody else noticed?", "Private wins count."]
+    ]
+  },
+  {
+    "id": "today",
+    "kicker": "Part 3",
+    "class": "k3",
+    "title": "Where you are today",
+    "intro": "The past is done. These questions are about this week and what is missing from it.",
+    "questions": [
+      ["How would you describe your life right now to a close friend, in three sentences?", "A plain summary is harder to hide behind than a long one."],
+      ["Which part of your life is working well at the moment?", "Start from what is solid."],
+      ["Which part of your life have you been neglecting?", "You usually already know."],
+      ["What is missing from your life right now?", "This is the question most people skip. Be specific."],
+      ["What are you putting up with?", "Small things you tolerate add up to a mood."],
+      ["What does an ordinary good day look like for you?", "Good years are built out of ordinary days."],
+      ["What do you do every week that you would like to stop?", "Stopping one thing frees more time than any new habit."],
+      ["What do you wish you had more time for?", "Write it down so you can see whether next year makes room for it."],
+      ["Who do you want to be closer to?", "A name is more useful here than a category."],
+      ["How is your health, honestly?", "Think about your body, your sleep and your mood."],
+      ["How do you feel about your work when you wake up on a Monday?", "The feeling tells you more than the job title."],
+      ["What are you avoiding thinking about?", "Naming it is half the work."],
+      ["What would you try next year if you knew nobody would judge you?", "It separates what you want from what looks sensible."],
+      ["If the next twelve months went well, what would be different by this time next year?", "This is the bridge from looking back to making a plan."],
+      ["What is the one change that would improve most of the rest?", "Your answer is a good candidate for next year's single focus."]
+    ]
+  }
+]

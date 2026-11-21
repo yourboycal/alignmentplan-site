@@ -1,0 +1,94 @@
+{"slug": "wheel-of-life", "nav": "Wheel of life", "title": "Wheel of Life: free online assessment and template", "description": "A free online wheel of life assessment. Rate eight areas from 1 to 10, see your wheel, save it and compare next month. No sign-up. Printable PDF template.", "crumb": "Wheel of life", "kind": "tool", "app_name": "Wheel of Life", "script": "wheel.js", "og_title": "Wheel of Life", "og_sub": "Free online assessment. Save it and compare next month.", "faq": [["What are the 8 areas of the wheel of life?", "The usual eight are career, money, health, family and friends, love, personal growth, fun, and home. They are a starting point, not a rule. This wheel lets you rename any area so it fits your life."], ["How do I score my wheel of life?", "Give each area a score from 1 to 10 for how satisfied you are with it right now. 1 means it needs urgent attention and 10 means you would not change a thing. Score the last month, not your best week, and do not compare yourself with anyone else."], ["What is a good wheel of life score?", "There is no pass mark. A wheel is useful for its shape, not its total. Look for the lowest areas and for a big gap between your highest and lowest scores, because that gap is where the wheel wobbles."], ["How often should I do the wheel of life?", "Once a month is enough. More often and the scores follow your mood. Less often and you lose the thread. Save this month, come back on the first of next month and compare the two shapes."], ["Is this wheel of life free?", "Yes. It is free to use, there is no sign-up and no email is needed. You can save months, compare them, copy a link and print."], ["Can I print the wheel of life or save it as a PDF?", "Yes. Use Print my wheel for your scored wheel, or Print a blank wheel for an empty template to fill in by hand. Choose Save as PDF in the print window to keep a copy."], ["Where are my scores stored?", "In your own browser, on this device. Nothing is sent to us. If you clear your browsing data or use a private window, the saved months go with it, so copy the link if you want a backup."], ["Who created the wheel of life?", "The exercise is credited to Paul J. Meyer, who founded Success Motivation Institute in 1960. Coaches have used versions of it ever since."]], "order": 1, "tag": "5 minutes", "card_sub": "Rate eight areas of your life, see the shape, and compare it month by month.", "related": ["life-audit", "vision-board"]}
+<section class="page-head gutter"><div class="wrap">
+  <h1>Wheel of Life: a free online assessment</h1>
+  <p class="lede">Rate eight areas of your life from 1 to 10 and see the shape it makes. Save it, then come back next month and compare. It takes about five minutes.</p>
+  <div class="facts"><span>Free</span><span>No sign-up</span><span>Saves in your browser</span><span>Printable</span></div>
+</div></section>
+
+<section class="tool gutter"><div class="wrap">
+  <div class="panel">
+    <div class="wheel-grid">
+      <div class="wheel-view">
+        <svg id="wheel" viewBox="0 0 440 400" role="img" aria-label="Your wheel of life"></svg>
+        <div class="legend"><span class="then" id="legend-then" hidden>Earlier</span><span class="now">This month</span></div>
+        <div class="blank-lines" aria-hidden="true"><span>Date:</span><span>Lowest area:</span><span>One step this month:</span><span>Rate again on:</span></div>
+      </div>
+      <div class="wheel-side">
+        <div>
+          <span class="lbl">How satisfied are you, 1 to 10?</span>
+          <p class="note">Score the last month, not your best week.</p>
+        </div>
+        <div class="sliders" id="sliders"></div>
+        <div class="result" id="result" aria-live="polite"></div>
+        <div class="actions">
+          <button class="btn btn-green" id="save" type="button">Save this month</button>
+          <button class="btn btn-ghost" id="copy" type="button">Copy link</button>
+          <button class="btn btn-ghost" id="print" type="button">Print my wheel</button>
+          <button class="btn btn-ghost" id="print-blank" type="button">Print a blank wheel</button>
+        </div>
+        <p class="toast" id="toast" role="status"></p>
+        <div class="saved" id="saved" hidden>
+          <div class="saved-row"><label class="lbl" for="compare">Compare this month with</label><select id="compare"></select></div>
+          <button class="linkish" id="forget" type="button">Delete my saved months</button>
+        </div>
+        <details class="edit">
+          <summary>Rename the eight areas</summary>
+          <div class="edit-grid" id="edit-grid"></div>
+          <p class="note" style="margin-top:10px;">Up to 18 letters each. <button class="linkish" id="reset-areas" type="button">Put the standard eight back</button></p>
+        </details>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="prose gutter"><div class="wrap">
+  <h2>What is the wheel of life?</h2>
+  <p>The wheel of life is a one-page picture of how your life feels right now. You split a circle into eight areas, give each a score out of ten, and join the dots. The shape you get is your wheel.</p>
+  <p>If the shape is round, the areas of your life are in step with each other. If it has flat sides or deep dents, some areas are being fed while others are going without. A wheel like that still turns, but you feel every bump.</p>
+  <p>It is popular with coaches because it is quick and honest. You do not need to write anything or explain yourself. Eight numbers are enough to show you where to look.</p>
+
+  <h2 id="areas">The eight areas of the wheel of life</h2>
+  <p>These are the eight areas most wheels use. Change any of them with "Rename the eight areas" under the wheel.</p>
+  <div class="areas">
+    <div class="area"><b>Career</b><span>Your work, paid or not. Do you find it worthwhile, and is it going somewhere you want to go?</span></div>
+    <div class="area"><b>Money</b><span>Income, savings and debt. Can you cover what you need, and do you feel in control of it?</span></div>
+    <div class="area"><b>Health</b><span>Body, sleep, energy and mood. How well are you looking after the one you live in?</span></div>
+    <div class="area"><b>Family and friends</b><span>The people closest to you. Do you see them enough, and are those relationships in good repair?</span></div>
+    <div class="area"><b>Love</b><span>Your partner, or how you feel about not having one. Score how content you are, whatever your situation.</span></div>
+    <div class="area"><b>Personal growth</b><span>Learning, reading, new skills, anything that stretches you. Are you still getting better at something?</span></div>
+    <div class="area"><b>Fun</b><span>Hobbies, play, rest and time off. When did you last do something just because you enjoy it?</span></div>
+    <div class="area"><b>Home</b><span>Where you live and work. Does the space around you help, or does it get in your way?</span></div>
+  </div>
+
+  <h2>How to score your wheel honestly</h2>
+  <ol>
+    <li><b>Score satisfaction, not achievement.</b> A modest salary you are happy with can be an 8. A big one that leaves you anxious can be a 4.</li>
+    <li><b>Use the last month.</b> One great weekend or one bad Tuesday should not set the score.</li>
+    <li><b>Go with your first number.</b> If you spend more than ten seconds on an area, you are negotiating with yourself.</li>
+    <li><b>Do not compare.</b> Your 6 is not anyone else's 6. The only fair comparison is you, last month.</li>
+    <li><b>Avoid the safe middle.</b> If every area is a 5 or a 6, push each one up or down until it feels true.</li>
+  </ol>
+
+  <h2>What your wheel is telling you</h2>
+  <p>Do not add the scores up. A total hides the one thing the wheel is good at showing, which is the shape.</p>
+  <h3>Look at the lowest two areas</h3>
+  <p>These are where a small change will be felt most. The tool names them for you under the sliders. Pick one. Working on all your low areas at once is how plans fall over by February.</p>
+  <h3>Look at the gap</h3>
+  <p>The gap is your highest score minus your lowest. A gap of five or more means one part of your life is running well ahead of another. Often the high area is paying for itself with time taken from the low one.</p>
+  <h3>Look at what surprised you</h3>
+  <p>The most useful score is the one you did not expect. If you gave Fun a 3 without thinking, that is worth more attention than a 3 you have known about for years.</p>
+
+  <h2>Why saving it and coming back matters</h2>
+  <p>A single wheel is a photograph. It tells you where you are today. Two wheels a month apart tell you which way you are moving, and that is the part you can act on.</p>
+  <p>That is why this page has a Save button. Save this month, and next month the earlier wheel appears behind the new one in blue. You can see at a glance what has grown and what you have let slide. Most online wheels let you fill one in once and leave. This one is built to be repeated.</p>
+  <p>The first of the month is a good day for it. It takes five minutes, and after three or four months you will have a clearer record of your year than any diary gives you.</p>
+
+  <h2>A wheel of life template to print</h2>
+  <p>If you would rather use pen and paper, press "Print a blank wheel" under the tool. You get an empty wheel with your eight area names and lines for the date, your lowest area and one step for the month. Choose "Save as PDF" in the print window if you want a file to keep or send to someone.</p>
+  <p>"Print my wheel" prints the wheel with your scores on it.</p>
+
+  <h2>Questions about the wheel of life</h2>
+  {{FAQ}}
+
+  <p class="credit">The wheel of life exercise is credited to Paul J. Meyer, founder of Success Motivation Institute. "Wheel of Life" is a registered trade mark of its owner in some countries. This page is an independent tool and is not connected with them.</p>
+</div></section>

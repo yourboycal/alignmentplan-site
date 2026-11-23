@@ -2,8 +2,9 @@
    The eight areas are the same standard coaching areas the wheel of life tool uses. */
 (function () {
   var areas = ["Career", "Money", "Health", "Family and friends", "Love", "Personal growth", "Fun", "Home"];
-  var dec = [8, 5, 4, 7, 6, 6, 5, 7];
-  var now = [8, 5, 6, 7, 6, 7, 4, 7];
+  var DEC = [8, 5, 4, 7, 6, 6, 5, 7];
+  var NOW = [8, 5, 6, 7, 6, 7, 4, 7];
+  var now = NOW;
   var NS = "http://www.w3.org/2000/svg";
 
   function el(name, attrs, text) {
@@ -14,7 +15,8 @@
   }
 
   /* Colours and line weights come from home.css (the wh- classes), so the wheel follows whichever screen it sits in. */
-  function drawWheel(svg, cx, cy, R, fontSize, labelR) {
+  function drawWheel(svg, cx, cy, R, fontSize, labelR, nowVals, thenVals) {
+    var now = nowVals || NOW, dec = thenVals || DEC;
     function pt(i, v) {
       var a = -Math.PI / 2 + (i / areas.length) * Math.PI * 2;
       var r = (v / 10) * R;
@@ -38,7 +40,13 @@
   }
 
   var wheels = [];
-  document.querySelectorAll("svg.wheel-static").forEach(function (s) { wheels.push(drawWheel(s, 120, 120, 108, 0, 0)); });
+  /* A small wheel can carry its own figures in data-now and data-then; those ones do not follow the sliders. */
+  function nums(s) { return s ? s.split(",").map(Number) : null; }
+  document.querySelectorAll("svg.wheel-static").forEach(function (s) {
+    var own = nums(s.getAttribute("data-now"));
+    var w = drawWheel(s, 120, 120, 108, 0, 0, own, nums(s.getAttribute("data-then")));
+    if (!own) wheels.push(w);
+  });
   var big = document.getElementById("home-wheel");
   if (big) wheels.push(drawWheel(big, 300, 222, 140, 17, 11.7));
 

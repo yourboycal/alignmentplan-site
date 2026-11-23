@@ -47,20 +47,21 @@ def step(p):
     return p.get("kind") == "step"
 
 
-def waitlist_html(n, ghost=""):
+def waitlist_html(n, ghost="", note=True):
+    """note=False leaves out the small print under the box. The hero uses that, to keep the header short."""
     if WAITLIST.get("action"):
         return ('<form class="waitlist" action="{action}" method="post">\n'
                 '      <label class="sr-only" for="wl-{n}">Your email address</label>\n'
                 '      <div class="wl-row"><input id="wl-{n}" type="email" name="{field}" placeholder="Your email address" autocomplete="email" required>'
                 '<button class="btn btn-primary" type="submit">Join the waiting list</button></div>\n'
-                '      <p class="wl-note">We will email you once to confirm, then when it opens in December. You can leave any time. <a href="privacy/">Privacy</a>.</p>\n'
-                '    </form>').format(action=esc(WAITLIST["action"]), field=esc(WAITLIST.get("field", "email")), n=n)
+                + ('      <p class="wl-note">We will email you once to confirm, then when it opens in December. You can leave any time. <a href="privacy/">Privacy</a>.</p>\n' if note else '')
+                + '    </form>').format(action=esc(WAITLIST["action"]), field=esc(WAITLIST.get("field", "email")), n=n)
     mail = ("mailto:" + CONTACT + "?subject=Add%20me%20to%20the%20waiting%20list"
             "&body=Please%20add%20me%20to%20The%20Alignment%20Plan%20waiting%20list.")
     return ('<div class="waitlist">\n'
             '      <div class="wl-row"><a class="btn btn-primary" href="{mail}">Join the waiting list</a>{ghost}</div>\n'
-            '      <p class="wl-note">Opens this December. The button starts an email to {c}: press send and you are on the list. <a href="privacy/">Privacy</a>.</p>\n'
-            '    </div>').format(mail=mail, c=CONTACT, ghost=ghost)
+            + ('      <p class="wl-note">Opens this December. The button starts an email to {c}: press send and you are on the list. <a href="privacy/">Privacy</a>.</p>\n' if note else '')
+            + '    </div>').format(mail=mail, c=CONTACT, ghost=ghost)
 
 
 def esc(s):
@@ -244,7 +245,7 @@ def build_home(pages):
         '<a href="{slug}/"><span class="tag">{tag}</span><b>{name}</b><span class="sub">{sub}</span><span class="go">Open</span></a>'.format(
             slug=p["slug"], tag=esc(p["tag"]), name=esc(p["og_title"]), sub=esc(p["card_sub"])) for p in pages)
     body = body.replace("{{TOOLS}}", cards).replace("{{EMAIL}}", CONTACT)
-    body = body.replace("{{WAITLIST_TOP}}", waitlist_html(1, '<a class="btn btn-ghost" href="#how">See how it works</a>'))
+    body = body.replace("{{WAITLIST_TOP}}", waitlist_html(1, '<a class="btn btn-ghost" href="#how">See how it works</a>', note=False))
     body = body.replace("{{WAITLIST_END}}", waitlist_html(2))
     ld = json.dumps({"@context": "https://schema.org", "@graph": [
         {"@type": "Organization", "@id": ORG_ID, "name": BRAND, "url": BASE},

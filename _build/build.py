@@ -24,7 +24,7 @@ ORG_ID = BASE + "#org"
 SITE_ID = BASE + "#site"
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap">')
+         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">')
 
 # The logo mark: three dots, one for each step, pulled into line by a pen stroke.
 MARK = ('<svg class="mark" viewBox="0 0 40 16" aria-hidden="true"><path d="M2 9.5C7 5 11 12 20 8s13-3 18 .5" fill="none" '

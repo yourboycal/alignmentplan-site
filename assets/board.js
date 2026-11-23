@@ -12,10 +12,10 @@
   var DEFAULT = ["Career", "Money", "Health", "Family and friends", "Love", "Personal growth", "Fun", "Home"];
   var HINTS = ["Work I am proud of", "Three months of savings", "Run 5k without stopping", "Sunday lunch, every month",
     "A weekend away, just us", "Hold a conversation in Spanish", "A tent, a lake, no phone", "A table that seats eight"];
-  var TINT = ["#e3edf8", "#f8eed6", "#e2f0dc", "#f8eed6", "#e3edf8", "#e2f0dc", "#e3edf8", "#f8eed6"];
-  var INKS = ["#2c5590", "#7a5512", "#2f5e26", "#7a5512", "#2c5590", "#2f5e26", "#2c5590", "#7a5512"];
+  var TINT = ["#e4e7f3", "#f0e4ee", "#e1ece6", "#f0e4ee", "#e4e7f3", "#e1ece6", "#e4e7f3", "#f0e4ee"];
+  var INKS = ["#222b52", "#55294f", "#244636", "#55294f", "#222b52", "#244636", "#222b52", "#55294f"];
   var POS = [0, 1, 2, 3, 5, 6, 7, 8];
-  var INK = "#1c222b", INK2 = "#5c6470", PAPER2 = "#ece8de";
+  var INK = "#1c1f2a", INK2 = "#5d6170", PAPER2 = "#ece8de";
 
   var toast = document.getElementById("toast");
   var list = document.getElementById("tiles");
@@ -105,7 +105,7 @@
     K.rr(ctx, c.x, c.y, tw, th, 26);
     if (blank) { ctx.fillStyle = "#ffffff"; ctx.fill(); K.rr(ctx, c.x + 1, c.y + 1, tw - 2, th - 2, 26); ctx.strokeStyle = "#8a8a94"; ctx.lineWidth = 2; ctx.stroke(); }
     else { ctx.fillStyle = INK; ctx.fill(); }
-    ["#4477bb", "#d9a03a", "#46823a"].forEach(function (col, n) {
+    ["#2c3766", "#6a3a63", "#2f5a45"].forEach(function (col, n) {
       ctx.beginPath(); ctx.arc(cx - 26 + n * 26, c.y + 52, 9, 0, Math.PI * 2); ctx.fillStyle = col; ctx.fill();
     });
     var title = String(state.title || "").trim() || "2027";

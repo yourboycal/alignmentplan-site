@@ -151,9 +151,9 @@
   // The picture to save or share: the same card, drawn on a canvas.
   function picture() {
     var n = state.size, W = 1080, H = 1350, c = document.createElement("canvas"); c.width = W; c.height = H;
-    var x = c.getContext("2d"), INK = "#1c222b";
+    var x = c.getContext("2d"), INK = "#1c1f2a";
     x.fillStyle = "#ece8de"; x.fillRect(0, 0, W, H);
-    ["#4477bb", "#d9a03a", "#46823a"].forEach(function (col, k) { x.beginPath(); x.arc(W / 2 - 30 + k * 30, 70, 10, 0, Math.PI * 2); x.fillStyle = col; x.fill(); });
+    ["#2c3766", "#6a3a63", "#2f5a45"].forEach(function (col, k) { x.beginPath(); x.arc(W / 2 - 30 + k * 30, 70, 10, 0, Math.PI * 2); x.fillStyle = col; x.fill(); });
     x.textAlign = "center"; x.textBaseline = "alphabetic";
     var ft = K.fit(x, state.title.trim() || DEFAULT_TITLE, 800, K.DISPLAY, W - 140, 132, 80, 36, 1.05);
     x.font = K.font(800, ft.size, K.DISPLAY); x.fillStyle = INK;
@@ -163,7 +163,7 @@
     var max = { 3: 46, 4: 38, 5: 30 }[n];
     live().forEach(function (sq, i) {
       var cx = gx + (i % n) * (cell + gap), cy = gy + Math.floor(i / n) * (cell + gap), text = sq.t.trim(), on = text && sq.done;
-      K.rr(x, cx, cy, cell, cell, 18); x.fillStyle = on ? "#46823a" : "#ffffff"; x.fill();
+      K.rr(x, cx, cy, cell, cell, 18); x.fillStyle = on ? "#2f5a45" : "#ffffff"; x.fill();
       if (!on) { K.rr(x, cx + 1.5, cy + 1.5, cell - 3, cell - 3, 18); x.strokeStyle = "#d8d8d2"; x.lineWidth = 3; x.stroke(); }
       if (!text) return;
       var f = K.fit(x, text, 600, K.BODY, cell - 26, cell - 26, max, 16, 1.18);
@@ -171,7 +171,7 @@
       var y0 = cy + cell / 2 - (f.lines.length * f.lh) / 2 + f.size * 0.82;
       f.lines.forEach(function (line, k) { x.fillText(line, cx + cell / 2, y0 + k * f.lh); });
     });
-    x.font = K.font(600, 22, K.BODY); x.fillStyle = "#5c6470";
+    x.font = K.font(600, 22, K.BODY); x.fillStyle = "#5d6170";
     x.fillText("The Alignment Plan", W / 2, H - 40);
     return c;
   }

@@ -79,14 +79,14 @@
     }
     function poly(vals) { return vals.map(function (v, i) { return pt(i, v).map(function (n) { return n.toFixed(1); }).join(","); }).join(" "); }
     for (var ring = 2; ring <= 10; ring += 2) {
-      svg.appendChild(el("circle", { cx: cx, cy: cy, r: (ring / 10) * R, fill: "none", stroke: "#5c6470", "stroke-opacity": 0.25, "stroke-width": 1 }));
+      svg.appendChild(el("circle", { cx: cx, cy: cy, r: (ring / 10) * R, fill: "none", stroke: "#5d6170", "stroke-opacity": 0.25, "stroke-width": 1 }));
     }
     [5, 10].forEach(function (n) {
-      svg.appendChild(el("text", { x: cx + 4, y: cy - (n / 10) * R + 13, fill: "#5c6470", "font-size": 11, "font-family": "Instrument Sans, Arial, sans-serif" }, String(n)));
+      svg.appendChild(el("text", { x: cx + 4, y: cy - (n / 10) * R + 13, fill: "#5d6170", "font-size": 11, "font-family": "Instrument Sans, Arial, sans-serif" }, String(n)));
     });
     labels.forEach(function (name, i) {
       var p = pt(i, 10);
-      svg.appendChild(el("line", { x1: cx, y1: cy, x2: p[0], y2: p[1], stroke: "#5c6470", "stroke-opacity": 0.35, "stroke-width": 1 }));
+      svg.appendChild(el("line", { x1: cx, y1: cy, x2: p[0], y2: p[1], stroke: "#5d6170", "stroke-opacity": 0.35, "stroke-width": 1 }));
       var lp = pt(i, 11.1);
       var middle = Math.abs(lp[0] - cx) < 10;
       var anchor = middle ? "middle" : (lp[0] < cx ? "end" : "start");
@@ -95,7 +95,7 @@
       if (middle && lp[1] < cy) y = lp[1] - 4 - (lines.length - 1) * lh;      // top: stack upwards
       else if (middle) y = lp[1] + font;                                       // bottom: stack downwards
       else y = lp[1] + font * 0.35 - (lines.length - 1) * lh / 2;              // sides: centre on the spoke
-      var t = el("text", { x: lp[0].toFixed(1), y: y.toFixed(1), "text-anchor": anchor, fill: "#1c222b", "font-size": font, "font-family": "Instrument Sans, Arial, sans-serif", "font-weight": 600 });
+      var t = el("text", { x: lp[0].toFixed(1), y: y.toFixed(1), "text-anchor": anchor, fill: "#1c1f2a", "font-size": font, "font-family": "Instrument Sans, Arial, sans-serif", "font-weight": 600 });
       lines.forEach(function (line, n) { t.appendChild(el("tspan", { x: lp[0].toFixed(1), dy: n ? lh : 0 }, line)); });
       svg.appendChild(t);
       // A long custom name is shrunk to fit inside the picture instead of being cut off.
@@ -107,9 +107,9 @@
     });
     if (blank) return;
     var cmp = entryById(compareId);
-    if (cmp) svg.appendChild(el("polygon", { points: poly(cmp.scores), fill: "#4477bb", "fill-opacity": 0.16, stroke: "#4477bb", "stroke-width": 1.5 }));
-    svg.appendChild(el("polygon", { points: poly(now), fill: "#46823a", "fill-opacity": 0.28, stroke: "#46823a", "stroke-width": 2.5 }));
-    now.forEach(function (v, i) { var p = pt(i, v); svg.appendChild(el("circle", { cx: p[0].toFixed(1), cy: p[1].toFixed(1), r: 4.5, fill: "#46823a" })); });
+    if (cmp) svg.appendChild(el("polygon", { points: poly(cmp.scores), fill: "#2c3766", "fill-opacity": 0.16, stroke: "#2c3766", "stroke-width": 1.5 }));
+    svg.appendChild(el("polygon", { points: poly(now), fill: "#2f5a45", "fill-opacity": 0.28, stroke: "#2f5a45", "stroke-width": 2.5 }));
+    now.forEach(function (v, i) { var p = pt(i, v); svg.appendChild(el("circle", { cx: p[0].toFixed(1), cy: p[1].toFixed(1), r: 4.5, fill: "#2f5a45" })); });
     svg.setAttribute("aria-label", "Your wheel of life. " + labels.map(function (l, i) { return l + " " + now[i]; }).join(", ") + ".");
   }
 

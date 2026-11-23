@@ -10,8 +10,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
 OUT = os.path.join(SITE, "og")
 os.makedirs(OUT, exist_ok=True)
-INK, INK2, PAPER, LINE = (28, 34, 43), (92, 100, 112), (246, 243, 236), (223, 220, 210)
-S1, S2, S3 = (68, 119, 187), (217, 160, 58), (70, 130, 58)
+INK, INK2, PAPER, LINE = (28, 31, 42), (93, 97, 112), (246, 243, 236), (223, 220, 210)
+S1, S2, S3 = (44, 55, 102), (106, 58, 99), (47, 90, 69)
 
 
 def font(size, bold=True):
@@ -44,8 +44,8 @@ def wheel(draw, cx, cy, R):
         draw.ellipse([cx - r, cy - r, cx + r, cy + r], outline=LINE, width=2)
     for i in range(8):
         draw.line([(cx, cy), pt(i, 10)], fill=LINE, width=2)
-    draw.polygon([pt(i, v) for i, v in enumerate(then)], fill=(68, 119, 187, 45), outline=S1)
-    draw.polygon([pt(i, v) for i, v in enumerate(now)], fill=(70, 130, 58, 80), outline=S3)
+    draw.polygon([pt(i, v) for i, v in enumerate(then)], fill=(44, 55, 102, 45), outline=S1)
+    draw.polygon([pt(i, v) for i, v in enumerate(now)], fill=(47, 90, 69, 80), outline=S3)
     for i, v in enumerate(now):
         x, y = pt(i, v); draw.ellipse([x - 7, y - 7, x + 7, y + 7], fill=S3)
 

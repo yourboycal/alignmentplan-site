@@ -16,7 +16,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/home.css">
@@ -50,7 +50,7 @@
     "@id": "https://alignmentplan.com/#site"
    },
    "inLanguage": "en-GB",
-   "dateModified": "2026-11-21"
+   "dateModified": "2026-11-23"
   },
   {
    "@type": "ItemList",
@@ -135,37 +135,6 @@
 </div></div>
 <main>
 <section class="landing gutter">
-  <svg class="scene" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-    <defs>
-      <linearGradient id="sc-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a6db5"/><stop offset=".3" stop-color="#4f82c4"/><stop offset=".5" stop-color="#7aa5d8"/><stop offset=".63" stop-color="#b4cde8"/><stop offset=".69" stop-color="#eae2d0"/><stop offset=".72" stop-color="#f1e8d4"/></linearGradient>
-      <linearGradient id="sc-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9c6e8"/><stop offset=".22" stop-color="#6396d4"/><stop offset="1" stop-color="#3c74bf"/></linearGradient>
-      <linearGradient id="sc-grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a7c94f"/><stop offset=".3" stop-color="#6aa63c"/><stop offset="1" stop-color="#2e6f2b"/></linearGradient>
-      <radialGradient id="sc-bush" cx=".4" cy=".3" r=".8"><stop offset="0" stop-color="#b9d455"/><stop offset=".5" stop-color="#6ea63a"/><stop offset="1" stop-color="#33722c"/></radialGradient>
-      <filter id="sc-brush" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.006 0.04" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="24"/></filter>
-      <filter id="sc-dab" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="34"/></filter>
-      <filter id="sc-soft" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="20"/></filter>
-      <filter id="sc-blades" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.4 0.018" numOctaves="2" seed="11"/><feColorMatrix values="0 0 0 0 .88  0 0 0 0 .95  0 0 0 0 .5  2.4 0 0 0 -1.05"/><feComposite in2="SourceAlpha" operator="in"/></filter>
-      <filter id="sc-sparkle" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.05 0.7" numOctaves="1" seed="5"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  7 0 0 0 -4.3"/><feComposite in2="SourceAlpha" operator="in"/></filter>
-      <filter id="sc-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="2"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .9 0"/></filter>
-    </defs>
-    <rect width="1440" height="900" fill="url(#sc-sky)"/>
-    <g filter="url(#sc-soft)" fill="#fff" opacity=".5">
-      <ellipse cx="260" cy="420" rx="360" ry="20"/><ellipse cx="1080" cy="380" rx="420" ry="18"/><ellipse cx="720" cy="500" rx="560" ry="24"/><ellipse cx="1300" cy="520" rx="300" ry="16"/><ellipse cx="120" cy="540" rx="280" ry="14"/>
-    </g>
-    <g filter="url(#sc-brush)">
-      <rect x="-60" y="640" width="1560" height="150" fill="url(#sc-sea)"/>
-      <rect x="-60" y="634" width="1560" height="9" fill="#f6eeda"/>
-    </g>
-    <rect x="0" y="650" width="1440" height="120" filter="url(#sc-sparkle)" opacity=".55"/>
-    <g filter="url(#sc-brush)">
-      <path d="M-60 772C180 738 420 748 660 770s520 34 840-22v200H-60Z" fill="url(#sc-grass)"/>
-    </g>
-    <path d="M-60 772C180 738 420 748 660 770s520 34 840-22v200H-60Z" filter="url(#sc-blades)" opacity=".5"/>
-    <g filter="url(#sc-dab)">
-      <ellipse cx="150" cy="770" rx="250" ry="92" fill="url(#sc-bush)"/><ellipse cx="330" cy="800" rx="150" ry="62" fill="url(#sc-bush)"/><ellipse cx="40" cy="745" rx="130" ry="70" fill="url(#sc-bush)"/>
-    </g>
-    <rect width="1440" height="900" filter="url(#sc-grain)" style="mix-blend-mode:soft-light" opacity=".55"/>
-  </svg>
   <div class="wrap landing-copy">
     <p class="badge"><i></i>An online planner for your whole year</p>
     <h1>Plan your year. Then <em>actually stick to it.</em></h1>
@@ -176,41 +145,70 @@
       <p class="wl-note">We will email you once to confirm, then when it opens in December. You can leave any time. <a href="privacy/">Privacy</a>.</p>
     </form>
     <ol class="pills" aria-label="The three steps">
-      <li class="pill"><b>1</b> Reflect on your year</li>
-      <li class="pill"><b>2</b> Plan the next one</li>
-      <li class="pill"><b>3</b> Stay aligned all year</li>
+      <li class="pill c1"><b>1</b> Reflect on your year</li>
+      <li class="pill c2"><b>2</b> Plan the next one</li>
+      <li class="pill c3"><b>3</b> Stay aligned all year</li>
     </ol>
   </div>
-  <div class="wrap stage-wrap">
-    <div class="screen" role="img" aria-label="The Alignment Plan dashboard: focus for the year, focus for the month, the Fridays you moved on it, the life wheel and each year goal with this month's step">
-      <div class="bar"><i></i><i></i><i></i><span>The Alignment Plan · 2027</span></div>
+  <div class="fan" role="img" aria-label="Three screens from The Alignment Plan: the Friday question, the dashboard for March with the focus for the year, the life wheel and each goal's step, and the monthly check-in">
+    <div class="screen dark tone-forest fan-side fan-l">
+      <div class="bar"><span>Friday · 26 Mar</span></div>
+      <div class="body">
+        <p class="say">Did you move on it this week?</p>
+        <p class="hint">Your focus for March: build the first version.</p>
+        <div class="opts"><span>Yes</span><span class="on">A bit</span><span>No</span></div>
+        <span class="cap">This month</span>
+        <div class="weeks"><i class="on"></i><i class="on"></i><i class="half"></i><i></i></div>
+        <p class="hint">One tap. Nothing to write.</p>
+      </div>
+    </div>
+    <div class="screen dark tone-navy fan-main">
+      <div class="bar"><span>The Alignment Plan · 2027</span></div>
       <div class="body">
         <div class="app-head"><b>March</b><span class="due">Next check-in · 1 Apr</span></div>
+        <p class="say">You are moving on two of your three goals.</p>
         <div class="dash">
           <div class="tile">
             <span class="cap">Focus for the year</span>
             <span class="focus-year">Make the new venture real</span>
             <span class="cap">Focus for March</span>
             <p class="north">Build the first version. Keep Friday mornings clear.</p>
-            <span class="cap">Fridays you moved on it</span>
-            <div class="yr-bars"><i style="height:75%"></i><i style="height:100%"></i><i style="height:50%"></i><i class="empty"></i><i class="empty"></i><i class="empty"></i><i class="empty"></i><i class="empty"></i><i class="empty"></i><i class="empty"></i><i class="empty"></i><i class="empty"></i></div>
-            <div class="yr-lbl"><span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span></div>
           </div>
           <div class="tile">
             <span class="cap">Life wheel</span>
-            <svg class="wheel-static" viewBox="0 0 240 240" aria-hidden="true"></svg>
+            <svg class="wheel-static" viewBox="0 0 240 240"></svg>
             <div class="wheel-key"><span class="dec">December</span><span class="cur">Now</span></div>
+          </div>
+        </div>
+        <div class="trend">
+          <div class="score"><svg viewBox="0 0 80 80"><circle class="rt" cx="40" cy="40" r="32"/><circle class="rv" cx="40" cy="40" r="32" stroke-dasharray="150.8 201.1" transform="rotate(-90 40 40)"/></svg><b>3</b><span>of 4</span></div>
+          <div class="trend-main">
+            <span class="cap">Fridays you moved on it</span>
+            <svg class="trail" viewBox="0 0 300 58"><path class="tr-base" d="M4 52h292"/><path class="tr-next" d="M62.5 32h225"/><path class="tr-line" d="M12.5 22L37.5 12L62.5 32"/><circle class="tr-dot" cx="12.5" cy="22" r="3.2"/><circle class="tr-dot" cx="37.5" cy="12" r="3.2"/><circle class="tr-dot now" cx="62.5" cy="32" r="4.2"/></svg>
+            <div class="yr-lbl"><span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span></div>
           </div>
         </div>
         <span class="cap-row">Year goals · this month's step</span>
         <div class="goals">
-          <div class="goal"><i style="background:var(--s2)"></i><div><b>Launch to ten customers by September</b><span>March: build the first version</span></div><span class="st st-part">2 of 4</span></div>
-          <div class="goal"><i style="background:var(--s3)"></i><div><b>Feel fit again by June</b><span>March: two morning walks a week</span></div><span class="st st-done">Done</span></div>
-          <div class="goal"><i style="background:var(--s1)"></i><div><b>Three months' savings by December</b><span>March: set up the monthly transfer</span></div><span class="st st-todo">To do</span></div>
+          <div class="goal"><svg class="ring" viewBox="0 0 24 24" aria-hidden="true"><circle class="rt" cx="12" cy="12" r="9"/><circle class="rv" cx="12" cy="12" r="9" stroke-dasharray="28.3 56.6" transform="rotate(-90 12 12)"/></svg><div><b>Launch to ten customers by September</b><span>March: build the first version</span></div><span class="st st-part">2 of 4</span></div>
+          <div class="goal"><svg class="ring" viewBox="0 0 24 24" aria-hidden="true"><circle class="rt" cx="12" cy="12" r="9"/><circle class="rv" cx="12" cy="12" r="9" stroke-dasharray="56.6 56.6" transform="rotate(-90 12 12)"/></svg><div><b>Feel fit again by June</b><span>March: two morning walks a week</span></div><span class="st st-done">Done</span></div>
+          <div class="goal"><svg class="ring" viewBox="0 0 24 24" aria-hidden="true"><circle class="rt" cx="12" cy="12" r="9"/><circle class="rv" cx="12" cy="12" r="9" stroke-dasharray="0 56.6" transform="rotate(-90 12 12)"/></svg><div><b>Three months' savings by December</b><span>March: set up the monthly transfer</span></div><span class="st st-todo">To do</span></div>
         </div>
       </div>
     </div>
-    <div class="float f1" aria-hidden="true"><b>Friday. Did you move on it this week?</b><div class="ans"><span>Yes</span><span class="on">A bit</span><span>No</span></div></div>
+    <div class="screen dark tone-aubergine fan-side fan-r">
+      <div class="bar"><span>Check-in · 1 Apr</span></div>
+      <div class="body">
+        <p class="say">March is done. Here is April.</p>
+        <div class="scoreline">
+          <div class="score sm"><svg viewBox="0 0 80 80"><circle class="rt" cx="40" cy="40" r="32"/><circle class="rv" cx="40" cy="40" r="32" stroke-dasharray="120.7 201.1" transform="rotate(-90 40 40)"/></svg><b>6</b></div>
+          <div><span class="cap">Health this month</span><p class="hint">Up from 4 in December</p></div>
+        </div>
+        <span class="cap">April's step, from your plan</span>
+        <p class="north">Talk to ten customers</p>
+        <div class="opts"><span class="on">Keep it</span><span>Change it</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -224,7 +222,7 @@
   <div class="sec-head"><span class="kicker">How it works</span><h2>Three steps. Two in December, one that runs all year.</h2></div>
   <div class="grid">
     <div class="step k1">
-      <div class="mini" aria-hidden="true">
+      <div class="mini dark tone-navy" aria-hidden="true">
         <div class="card"><b>If this year were a chapter in a book, what would its title be?</b><div class="in filled">The year I stopped waiting.</div></div>
         <div class="card"><b>What did you say yes to that you should have turned down?</b><div class="in filled">Every client request. Nothing of my own got finished.</div></div>
         <div class="card"><b>What is missing from your life right now?</b><div class="in">Type your answer</div></div>
@@ -234,7 +232,7 @@
       <p>A deep, guided session on the long view, the last twelve months and today. About an hour. You come out knowing where you are and what's missing.</p>
     </div>
     <div class="step k2">
-      <div class="mini" aria-hidden="true">
+      <div class="mini dark tone-aubergine" aria-hidden="true">
         <div class="card"><div class="line"><b>Focus for the year</b></div><div class="in filled" style="font-family:var(--display); font-weight:800; font-size:18px;">Make the new venture real</div></div>
         <div class="card"><div class="line"><b>Big goal</b><span class="tiny">by September</span></div><div class="in filled">Launch to the first ten customers</div></div>
         <div class="card"><div class="line"><b>January's step</b><span class="tiny">month 1 of 9</span></div><div class="in filled">Block Friday mornings</div></div>
@@ -244,7 +242,7 @@
       <p>Decide what the year is for. Choose one focus and up to three big goals. Then break each one down, month by month.</p>
     </div>
     <div class="step k3">
-      <div class="mini" aria-hidden="true">
+      <div class="mini dark tone-forest" aria-hidden="true">
         <div class="card"><div class="line"><b>Friday · Did you move on it?</b><span class="tiny">1 tap</span></div><div class="opts"><span>Yes</span><span class="on">A bit</span><span>No</span></div></div>
         <div class="card"><div class="line"><b>Health this month</b><span class="tiny">Dec: 4</span></div><div class="range"><i style="width:60%"></i><em style="left:60%"></em></div><div class="line"><span class="tiny">1</span><b>6</b><span class="tiny">10</span></div></div>
         <div class="card"><div class="line"><b>April's step</b><span class="tiny">from your plan</span></div><div class="in filled">Talk to ten customers</div></div>
@@ -269,10 +267,10 @@
     <a class="more" href="reflection-questions/">Start now with the 45 reflection questions</a>
   </div>
   <div class="shot b1">
-    <div class="screen" aria-hidden="true">
+    <div class="screen dark tone-navy" aria-hidden="true">
       <div class="bar"><i></i><i></i><i></i><span>Reflect · Part 2 of 3</span></div>
       <div class="body">
-        <span class="cap-row">Looking back</span>
+        <p class="say">What stayed with you this year?</p>
         <div class="tabs"><span>The long view</span><span class="on">Last 12 months</span><span>Today</span></div>
         <div class="qlist">
           <div class="q"><b>Which three moments from this year would you keep?</b><div class="in">The week in Wales. Dad's 70th. Handing in my notice.</div></div>
@@ -294,9 +292,10 @@
     <a class="more" href="yearly-goals-template/">Try it with the free yearly goals template</a>
   </div>
   <div class="shot b2">
-    <div class="screen" aria-hidden="true">
+    <div class="screen dark tone-aubergine" aria-hidden="true">
       <div class="bar"><i></i><i></i><i></i><span>Plan · Your plan for 2027</span></div>
       <div class="body">
+        <p class="say">Here is your year, one month at a time.</p>
         <div class="dash">
           <div class="tile"><span class="cap">Focus for the year</span><span class="focus-year">Make the new venture real</span><span class="cap">A year from now</span><p class="north">It pays my rent and I work on it every Friday.</p></div>
           <div class="tile"><span class="cap">Big goals</span>
@@ -329,16 +328,18 @@
   </div>
   <div class="shot b3">
     <div class="phone-wrap">
-      <div class="phone" aria-hidden="true">
+      <div class="phone dark tone-forest" aria-hidden="true">
         <div class="notch"></div>
         <div class="msg">
           <div class="from"><i></i>Alignment Plan<span class="time">Fri 26 Mar, 16:00</span></div>
-          <p>Friday. Your focus for March: <b>build the first version</b>. Did you move on it this week?</p>
+          <p class="say">Did you move on it this week?</p>
+          <p>Friday. Your focus for March: <b>build the first version</b>.</p>
           <div class="opts"><span class="on">Yes</span><span>A bit</span><span>No</span></div>
         </div>
         <div class="msg">
           <div class="from"><i></i>Alignment Plan<span class="time">1 Apr, 08:00</span></div>
-          <p>Morning. It's April. You said yes three Fridays out of four. Ten minutes?</p>
+          <p class="say">March is done. Ten minutes for April?</p>
+          <p>You said yes three Fridays out of four.</p>
           <div class="q"><b>Health this month, 1 to 10</b><div class="line" style="display:flex; justify-content:space-between; color:var(--ink-2);"><span>Dec: 4</span><b style="color:var(--ink);">6</b></div></div>
           <div class="q"><b>April's step, from your plan</b><div class="in">Talk to ten customers</div></div>
         </div>
@@ -351,13 +352,14 @@
   <div class="copy">
     <span class="kicker k3">Your year on one page</span>
     <h2>Try the wheel. Drag this month over December.</h2>
-    <p>Eight areas of your life, rated every month. The faint shape is December. The green shape is now. In one glance you can see what's moving and what you've let slide.</p>
+    <p>Eight areas of your life, rated every month. The dotted shape is December. The solid shape is now. In one glance you can see what's moving and what you've let slide.</p>
     <a class="more" href="wheel-of-life/">Do your own with the free wheel of life</a>
   </div>
   <div class="shot b3">
-    <div class="screen">
+    <div class="screen dark tone-forest">
       <div class="bar"><i></i><i></i><i></i><span>The Alignment Plan · Life wheel</span></div>
       <div class="body">
+        <p class="say">This is where you are today.</p>
         <svg id="home-wheel" viewBox="36 0 536 440" role="img" aria-label="Eight life areas rated 1 to 10, December against this month"></svg>
         <div class="wheel-key"><span class="dec">December</span><span class="cur">This month</span></div>
         <div class="dials" id="home-dials"></div>
@@ -375,7 +377,7 @@
     <p class="fine">Planned as a connector for Claude, ChatGPT and other assistants that support them. Your calendar stays with your assistant. The Alignment Plan only keeps the weekly totals.</p>
   </div>
   <div class="shot b0">
-    <div class="screen" role="img" aria-label="A chat with an AI assistant connected to the Alignment Plan, showing how much of the week went on each goal">
+    <div class="screen dark tone-navy" role="img" aria-label="A chat with an AI assistant connected to the Alignment Plan, showing how much of the week went on each goal">
       <div class="bar"><i></i><i></i><i></i><span>Your assistant</span><em class="conn">Connected</em></div>
       <div class="body">
         <div class="chat">
@@ -384,6 +386,7 @@
             <span>Partly. 8 of your 31 working hours went on your goals, and March's step got 5 of them.</span>
             <div class="toolcard">
               <span class="src"><i></i>Alignment Plan · w/c 22 Mar</span>
+              <p class="say">A quarter of your week went on your goals.</p>
               <div class="big"><b>26%</b><span>of your week went on your goals.<br>Up from 18% last week.</span></div>
               <div class="stack"><i style="width:16.1%; background:var(--s2)"></i><i style="width:9.7%; background:var(--s3)"></i><i style="width:74.2%; background:var(--line)"></i></div>
               <div class="split">

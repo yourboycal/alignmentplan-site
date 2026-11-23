@@ -1,13 +1,13 @@
 /* The Alignment Plan: shared stylesheet for every page. The colours, type and logo live here.
    Light design only. */
 :root {
-  /* Colours taken from the painted scene on the home page: sky, sun and meadow on soft cream. */
-  --paper: #f6f3ec; --paper-2: #ece8de; --ink: #1c222b; --ink-2: #5c6470; --line: #dfdcd2;
-  --s1: #4477bb; --s1-tint: #e3edf8; --s1-ink: #2c5590;
-  --s2: #d9a03a; --s2-tint: #f8eed6; --s2-ink: #7a5512;
-  --s3: #46823a; --s3-tint: #e2f0dc; --s3-ink: #2f5e26;
+  /* A quiet cream page. The three step colours are the three dark screen tones: navy, aubergine, forest. */
+  --paper: #f6f3ec; --paper-2: #ece8de; --ink: #1c1f2a; --ink-2: #5d6170; --line: #dfdcd2;
+  --s1: #2c3766; --s1-tint: #e4e7f3; --s1-ink: #222b52;
+  --s2: #6a3a63; --s2-tint: #f0e4ee; --s2-ink: #55294f;
+  --s3: #2f5a45; --s3-tint: #e1ece6; --s3-ink: #244636;
   --card: #fffefb;
-  --shadow: 0 24px 60px rgba(28,34,43,0.14), 0 2px 6px rgba(28,34,43,0.05);
+  --shadow: 0 24px 60px rgba(28,31,42,0.14), 0 2px 6px rgba(28,31,42,0.05);
   /* Headlines are the body sans at a light weight, with one phrase in serif italic. */
   --display: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
   --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
@@ -180,7 +180,7 @@ footer a:hover { text-decoration: underline; }
 
 /* Home hub */
 .hub { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.hub a { display: grid; gap: 8px; align-content: start; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; text-decoration: none; box-shadow: 0 4px 14px rgba(28,34,43,0.06); }
+.hub a { display: grid; gap: 8px; align-content: start; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; text-decoration: none; box-shadow: 0 4px 14px rgba(28,31,42,0.06); }
 .hub a:hover { border-color: var(--ink); }
 .hub .tag { justify-self: start; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
 .hub a:nth-child(4n+1) .tag { background: var(--s1-tint); color: var(--s1-ink); }

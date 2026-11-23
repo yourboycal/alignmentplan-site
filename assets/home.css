@@ -382,3 +382,9 @@ ol.pills { list-style: none; margin: 0; padding: 0; }
 .showcase .sec-head { justify-items: center; text-align: center; }
 .showcase .screen { width: 100%; max-width: 680px; }
 @media (max-width: 560px) { .dark .say.big { font-size: 24px; } }
+
+/* The badge line is a full sentence now. On a phone it drops the pill and reads as a plain line. */
+@media (max-width: 560px) {
+  .badge { border: 0; background: none; padding: 0; text-align: center; text-wrap: balance; display: block; }
+  .badge i { display: inline-block; margin-right: 8px; vertical-align: 1px; }
+}

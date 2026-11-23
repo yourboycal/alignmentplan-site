@@ -153,7 +153,7 @@
     var n = state.size, W = 1080, H = 1350, c = document.createElement("canvas"); c.width = W; c.height = H;
     var x = c.getContext("2d"), INK = "#1c1f2a";
     x.fillStyle = "#ece8de"; x.fillRect(0, 0, W, H);
-    ["#2c3766", "#6a3a63", "#2f5a45"].forEach(function (col, k) { x.beginPath(); x.arc(W / 2 - 30 + k * 30, 70, 10, 0, Math.PI * 2); x.fillStyle = col; x.fill(); });
+    x.beginPath(); x.arc(W / 2, 70, 17, 0, Math.PI * 2); x.fillStyle = INK; x.fill(); x.fillStyle = "#ece8de"; x.fillRect(W / 2 - 20, 71.6, 40, 3.3);  // the Horizon mark
     x.textAlign = "center"; x.textBaseline = "alphabetic";
     var ft = K.fit(x, state.title.trim() || DEFAULT_TITLE, 800, K.DISPLAY, W - 140, 132, 80, 36, 1.05);
     x.font = K.font(800, ft.size, K.DISPLAY); x.fillStyle = INK;

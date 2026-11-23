@@ -105,9 +105,9 @@
     K.rr(ctx, c.x, c.y, tw, th, 26);
     if (blank) { ctx.fillStyle = "#ffffff"; ctx.fill(); K.rr(ctx, c.x + 1, c.y + 1, tw - 2, th - 2, 26); ctx.strokeStyle = "#8a8a94"; ctx.lineWidth = 2; ctx.stroke(); }
     else { ctx.fillStyle = INK; ctx.fill(); }
-    ["#2c3766", "#6a3a63", "#2f5a45"].forEach(function (col, n) {
-      ctx.beginPath(); ctx.arc(cx - 26 + n * 26, c.y + 52, 9, 0, Math.PI * 2); ctx.fillStyle = col; ctx.fill();
-    });
+    // The Horizon mark: a solid circle with a level gap just below the middle.
+    ctx.beginPath(); ctx.arc(cx, c.y + 52, 16, 0, Math.PI * 2); ctx.fillStyle = blank ? INK : "#f5f0e7"; ctx.fill();
+    ctx.fillStyle = blank ? "#ffffff" : INK; ctx.fillRect(cx - 19, c.y + 53.5, 38, 3.1);
     var title = String(state.title || "").trim() || "2027";
     var word = blank ? "" : String(state.word || "").trim();
     ctx.textAlign = "center";

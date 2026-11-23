@@ -53,11 +53,11 @@ def wheel(draw, cx, cy, R):
 def card(slug, title, sub):
     img = Image.new("RGB", (1200, 630), PAPER)
     d = ImageDraw.Draw(img, "RGBA")
-    # The mark: a pen stroke that pulls the three dots into line.
-    d.line([(60, 85), (74, 78), (92, 84), (113, 81), (134, 77), (152, 78), (166, 83)], fill=INK, width=3, joint="curve")
-    for n, c in enumerate((S1, S2, S3)):
-        d.ellipse([72 + n * 30, 70, 94 + n * 30, 92], fill=c)
-    d.text((176, 62), "The Alignment Plan", font=font(34), fill=INK)
+    # The mark, "Horizon": a solid circle with a level gap just below the middle (54 to 62 of 100).
+    mx, my, ms = 72, 56, 50
+    d.ellipse([mx + ms * 0.08, my + ms * 0.08, mx + ms * 0.92, my + ms * 0.92], fill=INK)
+    d.rectangle([mx, my + ms * 0.54, mx + ms, my + ms * 0.62], fill=PAPER)
+    d.text((138, 62), "The Alignment Plan", font=font(34), fill=INK)
     f = font(76)
     y = 190
     for line in wrap(d, title, f, 640):
@@ -72,8 +72,10 @@ def card(slug, title, sub):
     print("og/" + slug + ".png")
 
 
-home = json.loads(open(os.path.join(HERE, "home.html"), encoding="utf-8").readline())
-card("home", home["og_title"], home["og_sub"])
+# The home page (and the 404 page) use the brand's own share image, made with the logo files in brand/logo.
+import shutil
+shutil.copyfile(os.path.join(HERE, "social-1200x630.png"), os.path.join(OUT, "home.png"))
+print("og/home.png (brand share image)")
 for path in sorted(glob.glob(os.path.join(HERE, "content", "*.html"))):
     meta = json.loads(open(path, encoding="utf-8").readline())
     card(meta["slug"], meta["og_title"], meta["og_sub"])

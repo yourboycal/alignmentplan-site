@@ -26,10 +26,11 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">')
 
-# The logo mark: three dots, one for each step, pulled into line by a pen stroke.
-MARK = ('<svg class="mark" viewBox="0 0 40 16" aria-hidden="true"><path d="M2 9.5C7 5 11 12 20 8s13-3 18 .5" fill="none" '
-        'stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="8.4" r="4.6" fill="var(--s1)"/>'
-        '<circle cx="20" cy="8" r="4.6" fill="var(--s2)"/><circle cx="32" cy="7.6" r="4.6" fill="var(--s3)"/></svg>')
+# The logo mark, "Horizon": one solid circle with one level line cut through it, just below the middle.
+# Geometry is fixed: viewBox 0 0 100 100, circle r 42 at the centre, a full-width gap at y 54, 8 high.
+MARK = ('<svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><defs><mask id="hz" maskUnits="userSpaceOnUse" x="0" y="0" '
+        'width="100" height="100"><rect width="100" height="100" fill="#fff"/><rect x="0" y="54" width="100" height="8" fill="#000"/>'
+        '</mask></defs><circle cx="50" cy="50" r="42" fill="currentColor" mask="url(#hz)"/></svg>')
 # Waiting list. waitlist.json holds the sign-up form address from the email tool. While "action" is empty
 # the button opens an email to the contact address instead, so the page never shows a form that goes nowhere.
 WAITLIST = json.load(open(os.path.join(HERE, "waitlist.json"), encoding="utf-8"))
@@ -192,7 +193,11 @@ def head(title, desc, url, og_image, rel, ld, extra="", robots=""):
             '<meta property="og:title" content="{t}">\n<meta property="og:description" content="{d}">\n'
             '<meta property="og:url" content="{u}">\n<meta property="og:image" content="{img}">\n'
             '<meta property="og:locale" content="en_GB">\n<meta name="twitter:card" content="summary_large_image">\n'
-            '{robots}{fonts}\n<link rel="icon" href="{rel}assets/favicon.svg" type="image/svg+xml">\n'
+            '<meta name="twitter:image" content="{img}">\n'
+            '{robots}{fonts}\n<link rel="icon" href="{rel}favicon.ico" sizes="48x48">\n'
+            '<link rel="icon" href="{rel}assets/favicon.svg" type="image/svg+xml">\n'
+            '<link rel="apple-touch-icon" href="{rel}apple-touch-icon.png">\n'
+            '<link rel="manifest" href="{rel}site.webmanifest">\n'
             '<link rel="stylesheet" href="{rel}assets/site.css">\n{extra}<script type="application/ld+json">\n{ld}\n</script>\n</head>\n').format(
                 t=esc(title), d=esc(desc), u=url, brand=BRAND, img=og_image, fonts=FONTS, extra=extra, ld=ld, rel=rel, robots=robots)
 
@@ -291,6 +296,11 @@ def main():
     open(os.path.join(SITE, "sitemap.xml"), "w", encoding="utf-8").write("\n".join(sm) + "\n")
     open(os.path.join(SITE, "robots.txt"), "w", encoding="utf-8").write("User-agent: *\nAllow: /\n\nSitemap: " + BASE + "sitemap.xml\n")
     open(os.path.join(SITE, "CNAME"), "w", encoding="utf-8").write(DOMAIN + "\n")
+    manifest = {"name": BRAND, "short_name": "Alignment Plan", "start_url": "/", "display": "browser",
+                "background_color": "#f6f3ec", "theme_color": "#1c1f2a",
+                "icons": [{"src": "/assets/icon-192.png", "sizes": "192x192", "type": "image/png"},
+                          {"src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png"}]}
+    open(os.path.join(SITE, "site.webmanifest"), "w", encoding="utf-8").write(json.dumps(manifest, indent=1) + "\n")
     # No .nojekyll file on purpose: GitHub Pages' default build leaves out folders that start
     # with an underscore, which keeps _build/ off the public site (the First Light site works the same way).
     nj = os.path.join(SITE, ".nojekyll")
